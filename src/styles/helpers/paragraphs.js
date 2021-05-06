@@ -13,14 +13,19 @@ export const B1Base = css`
   letter-spacing: normal;
 `
 
-export const B1Blue = css`
+export const B1Brown = css`
   ${B1Base};
-  color: ${colors.colorPrimary};
+  color: ${colors.colorShad};
 `
 
 export const B1White = css`
   ${B1Base};
   color: ${colors.white};
+`
+
+export const B1Gold = css`
+  ${B1Base};
+  color: ${colors.colorTertiary};
 `
 
 // Body copy TWO //

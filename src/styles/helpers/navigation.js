@@ -3,11 +3,11 @@ import { fonts, fontSizer } from "./index"
 
 export const Nav1Base = `
   ${fontSizer(1.2, 1.6, 76.8, 150, 1.8)};
-  font-family: ${fonts.fontSecondary};
+  font-family: ${fonts.fontPrimary};
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 0.8;
+  line-height: 1.33;
   letter-spacing: normal;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -25,9 +25,14 @@ export const Nav1White = `
   color: ${colors.white};
 `
 
-export const Nav1Blue = `
+export const Nav1Brown = `
   ${Nav1Base};
-  color: ${colors.colorPrimary};
+  color: ${colors.colorShad};
+`
+
+export const Nav1Gold = `
+  ${Nav1Base};
+  color: ${colors.colorTertiary};
 `
 
 export const Nav2Base = `
@@ -48,9 +53,4 @@ export const Nav2Base = `
   &:hover {
     color: ${colors.colorTertiary};
   }
-`
-
-export const Nav2White = `
-  ${Nav2Base};
-  color: ${colors.white};
 `

@@ -1,6 +1,6 @@
 const themeFonts = {
-  fontPrimary: "Lato",
-  fontSecondary: "Montserrat",
+  fontPrimary: "Open Sans",
+  fontSecondary: "Playfair Display",
   fontAwesome: "FontAwesome",
   baseLineHeight: "1.5",
 }

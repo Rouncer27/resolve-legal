@@ -3,7 +3,7 @@ import { css } from "styled-components"
 
 const SecondaryFonts = css`
   @font-face {
-    font-family: "Montserrat";
+    font-family: "Playfair Display";
     font-style: normal;
     font-weight: 400;
     src: local(""), url("${secondary.WOFF2_4}") format("woff2"),
@@ -11,7 +11,7 @@ const SecondaryFonts = css`
   }
 
   @font-face {
-    font-family: "Montserrat";
+    font-family: "Playfair Display";
     font-style: italic;
     font-weight: 400;
     src: local(""), url("${secondary.WOFF2_4I}") format("woff2"),
@@ -19,7 +19,7 @@ const SecondaryFonts = css`
   }
 
   @font-face {
-    font-family: "Montserrat";
+    font-family: "Playfair Display";
     font-style: normal;
     font-weight: 700;
     src: local(""), url("${secondary.WOFF2_7}") format("woff2"),
@@ -27,7 +27,7 @@ const SecondaryFonts = css`
   }
 
   @font-face {
-    font-family: "Montserrat";
+    font-family: "Playfair Display";
     font-style: italic;
     font-weight: 700;
     src: local(""), url("${secondary.WOFF2_7I}") format("woff2"),
