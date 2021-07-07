@@ -7,8 +7,8 @@ const Btn1Base = css`
   ${fontSizer(1.2, 1.4, 76.8, 150, 1.6)};
   display: inline-block;
   padding: 0.5rem 2.5rem;
-  border: none;
-  border-radius: 1.9rem;
+  border: 0.2rem solid #fff;
+  border-radius: 0;
   transition: all 0.3s ease;
   font-family: ${fonts.fontPrimary};
   font-weight: bold;
@@ -37,6 +37,30 @@ export const Btn1Gold = css`
 
   &:hover {
     background: ${colors.colorSecondary};
+    color: ${colors.white};
+  }
+
+  &:focus {
+    outline: 0.4rem solid #003b49;
+    transition: all 0.35s ease-in-out;
+  }
+
+  &:disabled {
+    &:hover {
+      background: ${colors.colorTertiary};
+      color: ${colors.colorPrimary};
+    }
+  }
+`
+
+export const Btn1GoldRev = css`
+  ${Btn1Base};
+  background: transparent;
+  border-color: ${colors.colorTertiary};
+  color: ${colors.colorTertiary};
+
+  &:hover {
+    background: ${colors.colorTertiary};
     color: ${colors.white};
   }
 

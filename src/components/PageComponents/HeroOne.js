@@ -1,0 +1,147 @@
+import React from "react"
+import styled from "styled-components"
+import BGImg from "gatsby-background-image"
+import { Link } from "gatsby"
+import { Btn1GoldRev, H1Gold } from "../../styles/helpers"
+import ElementTag from "../../utils/ElementTag"
+import MainLogoWhite from "../Logos/MainLogoWhite"
+
+const HeroOne = ({ data }) => {
+  const heroImage = data.image.localFile.childImageSharp.fluid
+  const mainTitleDisplay = ElementTag(data.titleTag, data.title)
+
+  return (
+    <HeroSectionOneStyled>
+      <div className="heroContent">
+        <div className="heroContent__inner">
+          {data.logoDisplay && (
+            <div className="main-logo">
+              <MainLogoWhite />
+            </div>
+          )}
+          <div>{mainTitleDisplay}</div>
+          {data.buttonRequired && (
+            <div className="links-btns">
+              <div>
+                <Link to={`/${data.buttonOneSlug}`}>{data.buttonOneText}</Link>
+              </div>
+              {data.secondButtonRequired && (
+                <div>
+                  <Link to={`/${data.secondButtonSlug}`}>
+                    {data.secondButtonText}
+                  </Link>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="heroImage">
+        <BGImg tag="div" fluid={heroImage} />
+      </div>
+      <div className="overlay" />
+    </HeroSectionOneStyled>
+  )
+}
+
+const HeroSectionOneStyled = styled.div`
+  position: relative;
+  height: 50rem;
+
+  @media (min-width: 1025px) {
+    height: 65rem;
+  }
+
+  .heroContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 7rem;
+    bottom: 7rem;
+    left: 0;
+    width: 100%;
+    padding: 2.5rem;
+    z-index: 100;
+
+    @media (min-width: 768px) {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+    }
+
+    @media (min-width: 1025px) {
+    }
+
+    &__inner {
+      width: 100%;
+      max-width: 68rem;
+      padding: 2rem;
+      text-align: center;
+
+      .main-logo {
+        max-width: 45rem;
+        margin: 2rem auto;
+      }
+
+      h2 {
+        ${H1Gold};
+      }
+
+      .links-btns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin-top: 5rem;
+
+        a {
+          ${Btn1GoldRev};
+          margin-right: 1rem;
+          margin-bottom: 2.5rem;
+          margin-left: 1rem;
+          min-width: 25rem;
+
+          @media (min-width: 768px) {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .heroImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    div {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      #fff 0%,
+      rgba(128, 128, 128, 1) 15%,
+      #122a41 35%,
+      #122a41 100%
+    );
+    opacity: 0.75;
+    z-index: 2;
+  }
+`
+
+export default HeroOne
