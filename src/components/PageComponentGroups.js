@@ -3,6 +3,9 @@ import React from "react"
 import HeroOne from "./PageComponents/HeroOne"
 import ImageByContent from "./PageComponents/ImageByContent"
 import ContentBlockOne from "./PageComponents/ContentBlockOne"
+import ThreeColumnsContent from "./PageComponents/ThreeColumnsContent"
+import SocialMediaIcons from "./PageComponents/SocialMediaIcons"
+import Testimonials from "./PageComponents/Testimonials"
 
 const PageComponentGroups = props => {
   const { components } = props
@@ -20,6 +23,15 @@ const PageComponentGroups = props => {
 
               case "Page_Acfmaintemplatefields_PageComponents_ContentBlockOne":
                 return <ContentBlockOne key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_ThreeColumnsContent":
+                return <ThreeColumnsContent key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_SocialMediaIcons":
+                return <SocialMediaIcons key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_Testimonials":
+                return <Testimonials key={index} data={component} />
 
               default:
                 return (

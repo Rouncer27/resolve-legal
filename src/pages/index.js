@@ -89,6 +89,32 @@ export const homeQuery = graphql`
             rightButtonSlug
             backgroundColor
           }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_ThreeColumnsContent {
+            fieldGroupName
+            columns {
+              image {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 1250)
+                  }
+                }
+              }
+              title
+              content
+            }
+          }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_SocialMediaIcons {
+            fieldGroupName
+            displaySocialMediaIcons
+          }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_Testimonials {
+            fieldGroupName
+            displayTestimonials
+          }
         }
       }
     }
