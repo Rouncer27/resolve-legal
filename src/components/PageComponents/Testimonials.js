@@ -39,7 +39,10 @@ const Testimonials = ({ data }) => {
 
 const TestimonialsSection = styled.section`
   position: relative;
-  height: 50rem;
+
+  @media (min-width: 768px) {
+    height: 65rem;
+  }
 
   @media (min-width: 1025px) {
     height: 65rem;
@@ -49,9 +52,13 @@ const TestimonialsSection = styled.section`
     position: absolute;
     top: 0;
     left: 0;
-    width: 70%;
+    width: 100%;
     height: 100%;
     z-index: 1;
+
+    @media (min-width: 768px) {
+      width: 70%;
+    }
 
     div {
       width: 100%;

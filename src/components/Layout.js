@@ -1,11 +1,13 @@
 import * as React from "react"
-import { ThemeProvider } from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
 import theme from "../styles/theme/Theme"
 import GlobalStyle from "../styles/global/Golbal"
 import Header from "./Header"
 import Footer from "./Footer"
+
+import BgGraphicOne from "./Graphics/BgGraphicOne"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -23,11 +25,29 @@ const Layout = ({ children }) => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-        <main>{children}</main>
+        <MainStyled>
+          {children}
+          <div className="bg-graphic">
+            <BgGraphicOne />
+          </div>
+        </MainStyled>
         <Footer />
       </ThemeProvider>
     </>
   )
 }
+
+const MainStyled = styled.main`
+  position: relative;
+
+  .bg-graphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+`
 
 export default Layout

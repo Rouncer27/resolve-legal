@@ -4,11 +4,8 @@ import styled from "styled-components"
 
 import { colors, fonts, H2Gold } from "../../styles/helpers"
 
-import Linkedin from "../Icons/Linkedin"
 import Facebook from "../Icons/Facebook"
 import Twitter from "../Icons/Twitter"
-import Vimeo from "../Icons/Vimeo"
-import Youtube from "../Icons/Youtube"
 import Instagram from "../Icons/Instagram"
 
 const getData = graphql`
@@ -99,7 +96,7 @@ const SocialMediaStyled = styled.div`
 
   @media (min-width: 1025px) {
     width: calc(100%);
-    padding: 2rem 4rem;
+    padding: 2rem 4rem 5rem;
   }
 
   p {

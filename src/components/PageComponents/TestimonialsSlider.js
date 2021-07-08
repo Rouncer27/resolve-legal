@@ -15,8 +15,8 @@ const settings = {
   autoplay: true,
   autoplaySpeed: 15000,
   centerPadding: "0",
-  arrows: false,
-  dots: true,
+  arrows: true,
+  dots: false,
 }
 
 const TestimonialsSlider = ({ testimonials }) => {
@@ -47,14 +47,23 @@ const TestimonialsSlider = ({ testimonials }) => {
 }
 
 const TestimonialsSliderStyled = styled.div`
-  position: absolute;
-  top: 10rem;
-  right: 5rem;
-  bottom: 10rem;
-  width: 75rem;
-  padding: 6rem 8rem;
+  position: relative;
+  padding: 3rem 4rem;
   background-color: rgba(41, 41, 41, 0.9);
   z-index: 1000;
+
+  @media (min-width: 768px) {
+    position: absolute;
+    top: 10rem;
+    right: 5rem;
+    bottom: 10rem;
+    width: 60rem;
+    padding: 6rem 8rem;
+  }
+
+  @media (min-width: 1025px) {
+    width: 75rem;
+  }
 
   .slider-title {
     width: 100%;
