@@ -114,6 +114,16 @@ export const homeQuery = graphql`
           ... on WpPage_Acfmaintemplatefields_PageComponents_Testimonials {
             fieldGroupName
             displayTestimonials
+            testimonialImage {
+              altText
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1500) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
+            }
           }
         }
       }

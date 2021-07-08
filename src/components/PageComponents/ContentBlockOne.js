@@ -12,8 +12,6 @@ import ElementTag from "../../utils/ElementTag"
 import { Link } from "gatsby"
 
 const ContentBlockOne = ({ data }) => {
-  console.log(data)
-
   const leftTitle = ElementTag(data.leftTitleTag, data.leftTitle)
   const rightTitle = ElementTag(data.rightTitleTag, data.rightTitle)
   return (
