@@ -25,10 +25,17 @@ const Layout = ({ children, pagestyles }) => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header
-          // heroactive={pagestyles?.acfPageStyles?.heroImageTop}
+          heroactive={pagestyles?.acfPageStyles?.heroImageTop}
           siteTitle={data.site.siteMetadata?.title || `Title`}
         />
-        <MainStyled>{children}</MainStyled>
+        <MainStyled>
+          {children}
+          {pagestyles?.acfPageStyles?.backgroundGraphicActive && (
+            <div className="bg-graphic">
+              <BgGraphicOne />
+            </div>
+          )}
+        </MainStyled>
         <Footer />
       </ThemeProvider>
     </>
