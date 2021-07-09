@@ -24,6 +24,7 @@ const MainContentStyled = styled.div`
   justify-content: space-between;
   background-color: ${colors.colorPrimary};
   width: 100%;
+  padding: 4rem 2rem;
 
   @media (min-width: 768px) {
     width: calc(75%);

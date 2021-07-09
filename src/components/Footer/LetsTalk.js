@@ -23,11 +23,13 @@ const LetsTalkStyled = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 5rem 2rem;
   background-color: ${colors.colorTertiary};
   text-align: center;
 
   @media (min-width: 768px) {
     width: calc(25%);
+    padding: 0;
   }
 
   div {

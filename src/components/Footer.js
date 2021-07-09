@@ -17,17 +17,27 @@ const Footer = () => {
 }
 
 const FooterStyled = styled.footer`
-  background: linear-gradient(
-    to right,
-    ${colors.colorTertiary} 20%,
-    ${colors.colorPrimary} 20%,
-    ${colors.colorPrimary} 100%
-  );
+  @media (min-width: 768px) {
+    background: linear-gradient(
+      to right,
+      ${colors.colorTertiary} 20%,
+      ${colors.colorPrimary} 20%,
+      ${colors.colorPrimary} 100%
+    );
+  }
 
   .wrapper {
-    ${BigWrapper};
-    margin: 0 auto;
-    padding: 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+
+    @media (min-width: 768px) {
+      ${BigWrapper};
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
   }
 `
 
