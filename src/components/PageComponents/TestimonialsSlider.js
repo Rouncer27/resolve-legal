@@ -27,7 +27,6 @@ const TestimonialsSlider = ({ testimonials }) => {
       </div>
       <Slider {...settings}>
         {testimonials.map((testimonial, index) => {
-          console.log(testimonial)
           return (
             <TestimonialSlide key={index}>
               <div

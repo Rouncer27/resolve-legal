@@ -4,7 +4,7 @@ import { fonts, fontSizer } from "./index"
 export const Nav1Base = `
   ${fontSizer(1.2, 1.6, 76.8, 150, 1.8)};
   font-family: ${fonts.fontPrimary};
-  font-weight: bold;
+  font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.33;
