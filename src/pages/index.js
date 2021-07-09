@@ -6,9 +6,9 @@ import Seo from "../components/SEO"
 import PageComponentGroups from "../components/PageComponentGroups"
 
 const IndexPage = props => {
-  const { components, seo } = props.data
+  const { components, seo, pageStyles } = props.data
   return (
-    <Layout>
+    <Layout pagestyles={pageStyles}>
       <Seo title="Home" />
       <PageComponentGroups components={components} />
     </Layout>
@@ -26,6 +26,13 @@ export const homeQuery = graphql`
             relativePath
           }
         }
+      }
+    }
+
+    pageStyles: wpPage(slug: { eq: "home" }) {
+      acfPageStyles {
+        backgroundGraphicActive
+        heroImageTop
       }
     }
 

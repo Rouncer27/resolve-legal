@@ -7,29 +7,35 @@ import MainLogo from "./Logos/MainLogo"
 import HeaderNav from "./Header/Navigation/HeaderNav/HeaderNav"
 import HeaderMenuTop from "./Header/Navigation/HeaderNav/HeaderMenuTop"
 
-const Header = ({ siteTitle }) => (
-  <HeaderStyled role="banner" className="site-header">
-    <div className="wrapper">
-      <div className="header-top-nav">
-        <HeaderMenuTop />
+const Header = ({ siteTitle, heroactive }) => {
+  console.log({ heroactive })
+  return (
+    <HeaderStyled heroactive={heroactive} role="banner" className="site-header">
+      <div className="wrapper">
+        <div className="header-top-nav">
+          <HeaderMenuTop />
+        </div>
+        <div className="headerLogo">
+          <h1>
+            <Link to="/">
+              <MainLogo /> <span>{siteTitle}</span>
+            </Link>
+          </h1>
+        </div>
+        <div className="mainNav">
+          <HeaderNav />
+        </div>
       </div>
-      <div className="headerLogo">
-        <h1>
-          <Link to="/">
-            <MainLogo /> <span>{siteTitle}</span>
-          </Link>
-        </h1>
-      </div>
-      <div className="mainNav">
-        <HeaderNav />
-      </div>
-    </div>
-    {/* <MobileNav /> */}
-  </HeaderStyled>
-)
+      {/* <MobileNav /> */}
+    </HeaderStyled>
+  )
+}
 
 const HeaderStyled = styled.header`
-  position: relative;
+  position: ${props => (props.heroactive ? "absolute" : "relative")};
+  ${props => props.heroactive && "top: 0;"}
+  ${props => props.heroactive && "left: 0;"}
+  width: 100%;
   z-index: 500;
 
   .wrapper {

@@ -37,7 +37,6 @@ const HeaderSubMenuStyled = styled.ul`
   left: 0rem;
   width: 25rem;
   margin: auto;
-  padding: 1rem;
   background-color: ${colors.colorAccent};
   text-align: left;
   transition: all 0.3s ease-in;

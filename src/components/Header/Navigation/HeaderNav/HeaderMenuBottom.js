@@ -17,6 +17,12 @@ const getData = graphql`
           parentId
           id
           databaseId
+          childItems {
+            nodes {
+              label
+              url
+            }
+          }
         }
       }
     }
@@ -36,6 +42,7 @@ const HeaderMenu = () => {
     item.subItems = itemWithSubs
     return item
   })
+
   const headerNavigation = navItems ? (
     navItemsWithSubs.length > 0 ? (
       <HeaderNavStyled role="navigation" aria-label="primary">

@@ -32,27 +32,14 @@ const HeaderNavItem = ({ item, top }) => {
 
   return (
     <HeaderNavItemStyled top={top}>
-      {needsRefresh && isBrowser() ? (
-        <button
-          onClick={() =>
-            window.location.replace(`${process.env.GATSBY_BASE_URL}${item.url}`)
-          }
-          onMouseEnter={handleIsActiveOn}
-          onMouseLeave={handleIsActiveOff}
-          onFocus={handleIsActiveOn}
-        >
-          {item.label}
-        </button>
-      ) : (
-        <Link
-          to={`/${slug}`}
-          onMouseEnter={handleIsActiveOn}
-          onMouseLeave={handleIsActiveOff}
-          onFocus={handleIsActiveOn}
-        >
-          {item.label}
-        </Link>
-      )}
+      <Link
+        to={`/${slug}`}
+        onMouseEnter={handleIsActiveOn}
+        onMouseLeave={handleIsActiveOff}
+        onFocus={handleIsActiveOn}
+      >
+        {item.label}
+      </Link>
       {item.subItems.length > 0 && (
         <>
           <span className="subIndicator">&#x25BC;</span>
@@ -106,7 +93,7 @@ const HeaderNavItemStyled = styled.li`
     }
 
     &:focus {
-      outline: 0.4rem solid #74bf44;
+      outline: 0.4rem solid #e0b65a;
       transition: all 0.35s ease-in-out;
     }
   }

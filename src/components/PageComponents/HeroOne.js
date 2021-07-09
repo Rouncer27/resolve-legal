@@ -48,8 +48,12 @@ const HeroSectionOneStyled = styled.div`
   position: relative;
   height: 50rem;
 
+  @media (min-width: 768px) {
+    height: 55rem;
+  }
+
   @media (min-width: 1025px) {
-    height: 65rem;
+    height: 75rem;
   }
 
   .heroContent {
@@ -114,7 +118,7 @@ const HeroSectionOneStyled = styled.div`
 
   .heroImage {
     position: absolute;
-    top: 0;
+    top: 4.5rem;
     left: 0;
     width: 100%;
     height: 100%;

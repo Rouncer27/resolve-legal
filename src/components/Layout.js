@@ -9,7 +9,7 @@ import Footer from "./Footer"
 
 import BgGraphicOne from "./Graphics/BgGraphicOne"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, pagestyles }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -24,12 +24,17 @@ const Layout = ({ children }) => {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+        <Header
+          heroactive={pagestyles?.acfPageStyles?.heroImageTop}
+          siteTitle={data.site.siteMetadata?.title || `Title`}
+        />
         <MainStyled>
           {children}
-          <div className="bg-graphic">
-            <BgGraphicOne />
-          </div>
+          {pagestyles?.acfPageStyles?.backgroundGraphicActive && (
+            <div className="bg-graphic">
+              <BgGraphicOne />
+            </div>
+          )}
         </MainStyled>
         <Footer />
       </ThemeProvider>

@@ -29,6 +29,13 @@ export const pageTempQuery = graphql`
         }
       }
     }
+
+    pageStyles: wpPage(id: { eq: $id }) {
+      acfPageStyles {
+        backgroundGraphicActive
+        heroImageTop
+      }
+    }
   }
 `
 
