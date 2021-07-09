@@ -17,11 +17,11 @@ ${PrimaryFonts}
 ${SecondaryFonts}
 
 :root {
-    --primary: #003B49;
-    --secondary: #62A7C4;
-    --tertiary: #F9A11B;
-    --accent: #E1251B;
-    --shadow: #E0DEE1;
+    --primary: #122A41;
+    --secondary: #292929;
+    --tertiary: #E0B65A;
+    --accent: #35231A;
+    --shadow: #63625F;
     --alt: #090b10;
     --brown: #454545;
     --black: #090b10;
