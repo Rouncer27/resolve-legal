@@ -5,6 +5,8 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { B1White, H1Gold, fontSizer } from "../../styles/helpers"
 
+import TestimonialsIcon from "../Icons/TestimonialsIcon"
+
 const settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
@@ -24,6 +26,9 @@ const TestimonialsSlider = ({ testimonials }) => {
     <TestimonialsSliderStyled>
       <div className="slider-title">
         <h2>Testimonials</h2>
+      </div>
+      <div className="slider-icon">
+        <TestimonialsIcon />
       </div>
       <Slider {...settings}>
         {testimonials.map((testimonial, index) => {
@@ -53,9 +58,9 @@ const TestimonialsSliderStyled = styled.div`
 
   @media (min-width: 768px) {
     position: absolute;
-    top: 10rem;
+    top: 8rem;
     right: 5rem;
-    bottom: 10rem;
+    bottom: 8rem;
     width: 60rem;
     padding: 6rem 8rem;
   }
@@ -72,6 +77,16 @@ const TestimonialsSliderStyled = styled.div`
       ${H1Gold};
       margin: 0;
     }
+  }
+
+  .slider-icon {
+    position: absolute;
+    bottom: 4rem;
+    right: 0;
+    left: 0;
+    width: 5.5rem;
+    height: 5.5rem;
+    margin: auto;
   }
 
   .slick-slider {
