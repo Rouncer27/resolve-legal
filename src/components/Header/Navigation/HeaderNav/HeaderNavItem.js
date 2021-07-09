@@ -92,9 +92,11 @@ const HeaderNavItemStyled = styled.li`
       }
     }
 
-    &:focus {
+    ${
+      "" /* &:focus {
       outline: 0.4rem solid #e0b65a;
       transition: all 0.35s ease-in-out;
+    } */
     }
   }
 

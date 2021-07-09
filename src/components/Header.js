@@ -2,13 +2,13 @@ import * as React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
-import { medWrapper, colors, standardWrapper } from "../styles/helpers"
+import { medWrapper, colors } from "../styles/helpers"
 import MainLogo from "./Logos/MainLogo"
 import HeaderNav from "./Header/Navigation/HeaderNav/HeaderNav"
 import HeaderMenuTop from "./Header/Navigation/HeaderNav/HeaderMenuTop"
+import MobileNav from "./Header/Navigation/MobileNav/MobileNav"
 
 const Header = ({ siteTitle, heroactive }) => {
-  console.log({ heroactive })
   return (
     <HeaderStyled heroactive={heroactive} role="banner" className="site-header">
       <div className="wrapper">
@@ -26,7 +26,7 @@ const Header = ({ siteTitle, heroactive }) => {
           <HeaderNav />
         </div>
       </div>
-      {/* <MobileNav /> */}
+      <MobileNav />
     </HeaderStyled>
   )
 }

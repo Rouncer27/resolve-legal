@@ -1,15 +1,27 @@
 import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
-import { colors, Nav1Gold, Nav1Brown } from "../../../../styles/helpers"
+import { colors, Nav1Gold, fontSizer } from "../../../../styles/helpers"
 
-const HeaderSubTwoMenu = ({ items, subactive }) => {
-  console.log("HERE MAN: ", items)
+const HeaderSubTwoMenu = ({
+  items,
+  subactive,
+  handleIsActiveOff,
+  handleIsActiveOffTopLevel,
+}) => {
   return (
     <HeaderSubTwoMenuStyled subactive={subactive}>
-      {items.map(item => (
-        <li>
-          <Link to={`/${item.url}`}>{item.label}</Link>
+      {items.map((item, index) => (
+        <li key={index}>
+          <Link
+            onClick={() => {
+              handleIsActiveOff()
+              handleIsActiveOffTopLevel()
+            }}
+            to={`/${item.url}`}
+          >
+            {item.label}
+          </Link>
         </li>
       ))}
     </HeaderSubTwoMenuStyled>
@@ -29,6 +41,7 @@ const HeaderSubTwoMenuStyled = styled.ul`
   li {
     a {
       ${Nav1Gold};
+      ${fontSizer(1.2, 1.4, 76.8, 150, 1.8)};
       position: relative;
       display: block;
       width: 100%;

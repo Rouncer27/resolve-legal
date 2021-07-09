@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
-import { colors } from "../../../styles/helpers"
-import MainLogo from "../../Logos/MainLogo"
+import { colors } from "../../../../styles/helpers"
+import MainLogo from "../../../Logos/MainLogo"
 import MobileNavContainer from "./MobileNavContainer"
 
 const getData = graphql`
@@ -53,6 +53,7 @@ const NavDrawer = styled.div`
   background-image: linear-gradient(
     to bottom,
     ${colors.white} 0%,
+    ${colors.colorSecondary} 50%,
     ${colors.colorSecondary} 100%
   );
   opacity: ${props => (props.isOpen ? 1 : 0)};

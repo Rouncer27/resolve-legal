@@ -22,6 +22,7 @@ const HeaderSubMenu = ({
           item={subItem}
           isLast={items.length === index + 1}
           handleIsActiveOffBlur={handleIsActiveOffBlur}
+          handleIsActiveOffTopLevel={handleIsActiveOff}
         />
       ))}
     </HeaderSubMenuStyled>
