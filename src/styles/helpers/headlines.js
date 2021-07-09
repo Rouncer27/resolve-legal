@@ -78,13 +78,18 @@ export const H3Gold = css`
 
 // Headline Styles #4 //
 export const H4Base = css`
-  ${fontSizer(1.6, 1.8, 76.8, 160, 1.8)};
-  font-family: ${fonts.fontSecondary};
+  ${fontSizer(1.4, 1.8, 76.8, 160, 1.8)};
+  font-family: ${fonts.fontPrimary};
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.67;
   letter-spacing: normal;
+`
+
+export const H4IntroGold = css`
+  ${H4Base};
+  color: ${colors.colorTertiary};
 `
 
 // Headline Styles #5 //

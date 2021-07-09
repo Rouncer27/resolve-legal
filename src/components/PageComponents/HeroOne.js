@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import BGImg from "gatsby-background-image"
 import { Link } from "gatsby"
-import { Btn1GoldRev, H1Gold } from "../../styles/helpers"
+import { Btn1GoldRev, H1Gold, H4IntroGold } from "../../styles/helpers"
 import ElementTag from "../../utils/ElementTag"
 import MainLogoWhite from "../Logos/MainLogoWhite"
 
@@ -19,7 +19,10 @@ const HeroOne = ({ data }) => {
               <MainLogoWhite />
             </div>
           )}
-          <div>{mainTitleDisplay}</div>
+          <div className="hero-titles">
+            {data.subTitleDisplay && <p>{data.subTitle}</p>}
+            {mainTitleDisplay}
+          </div>
           {data.buttonRequired && (
             <div className="links-btns">
               <div>
@@ -47,6 +50,7 @@ const HeroOne = ({ data }) => {
 const HeroSectionOneStyled = styled.div`
   position: relative;
   height: 50rem;
+  overflow: hidden;
 
   @media (min-width: 768px) {
     height: 55rem;
@@ -90,8 +94,17 @@ const HeroSectionOneStyled = styled.div`
         margin: 2rem auto;
       }
 
+      .hero-titles {
+        p {
+          ${H4IntroGold};
+          margin: 0;
+          text-transform: uppercase;
+        }
+      }
+
       h2 {
         ${H1Gold};
+        margin-top: 0;
       }
 
       .links-btns {

@@ -42,6 +42,8 @@ export const homeQuery = graphql`
           ... on WpPage_Acfmaintemplatefields_PageComponents_HeroOne {
             fieldGroupName
             logoDisplay
+            subTitleDisplay
+            subTitle
             title
             titleTag
             buttonRequired
@@ -131,6 +133,31 @@ export const homeQuery = graphql`
                 }
               }
             }
+          }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_LinkBoxes {
+            fieldGroupName
+            boxes {
+              title
+              subTitle
+              slug
+              icon {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 1250)
+                  }
+                }
+              }
+            }
+          }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_CalloutAction {
+            fieldGroupName
+            title
+            content
+            buttonText
+            buttonSlug
           }
         }
       }
