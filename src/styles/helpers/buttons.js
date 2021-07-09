@@ -104,9 +104,34 @@ export const Btn1LightBlue = css`
   ${Btn1Base};
   background: ${colors.colorSecondary};
   color: ${colors.white};
+  font-weight: normal;
 
   &:hover {
     background: ${colors.greyMed};
+    color: ${colors.white};
+  }
+
+  &:focus {
+    outline: 0.4rem solid #003b49;
+    transition: all 0.35s ease-in-out;
+  }
+
+  &:disabled {
+    &:hover {
+      background: ${colors.greyMed};
+      color: ${colors.colorPrimary};
+    }
+  }
+`
+
+export const Btn1Brown = css`
+  ${Btn1Base};
+  background: transparent;
+  border-color: ${colors.colorShad};
+  color: ${colors.colorShad};
+
+  &:hover {
+    background: ${colors.colorPrimary};
     color: ${colors.white};
   }
 

@@ -30,11 +30,16 @@ export const B1Gold = css`
 
 // Body copy TWO //
 export const B2Base = css`
-  ${fontSizer(1.4, 1.6, 76.8, 150, 1.4)};
+  ${fontSizer(1.2, 1.4, 76.8, 150, 1.4)};
   font-family: ${fonts.fontPrimary};
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.5;
   letter-spacing: normal;
+`
+
+export const B2White = css`
+  ${B2Base};
+  color: ${colors.white};
 `
