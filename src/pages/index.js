@@ -33,6 +33,7 @@ export const homeQuery = graphql`
       acfPageStyles {
         backgroundGraphicActive
         heroImageTop
+        sideStripe
       }
     }
 
@@ -158,6 +159,50 @@ export const homeQuery = graphql`
             content
             buttonText
             buttonSlug
+          }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_TitleOne {
+            fieldGroupName
+            title
+            titleTag
+            image {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 1500)
+                }
+              }
+            }
+          }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_TitleSimpleContent {
+            fieldGroupName
+            title
+            titleTag
+            content
+            backgroundGraphic
+            buttonRequired
+            buttonOneText
+            buttonOneSlug
+            sectionButtonRequired
+            buttonTwoText
+            buttonTwoSlug
+            sectionId
+          }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_HeroPage {
+            fieldGroupName
+            backgroundGraphic
+            image {
+              altText
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 2000) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
+            }
           }
         }
       }

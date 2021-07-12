@@ -8,6 +8,9 @@ import SocialMediaIcons from "./PageComponents/SocialMediaIcons"
 import Testimonials from "./PageComponents/Testimonials"
 import LinkBoxes from "./PageComponents/LinkBoxes"
 import CalloutAction from "./PageComponents/CalloutAction"
+import TitleOne from "./PageComponents/TitleOne"
+import TitleSimpleContent from "./PageComponents/TitleSimpleContent"
+import HeroPage from "./PageComponents/HeroPage"
 
 const PageComponentGroups = props => {
   const { components } = props
@@ -40,6 +43,15 @@ const PageComponentGroups = props => {
 
               case "Page_Acfmaintemplatefields_PageComponents_CalloutAction":
                 return <CalloutAction key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_TitleOne":
+                return <TitleOne key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_TitleSimpleContent":
+                return <TitleSimpleContent key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_HeroPage":
+                return <HeroPage key={index} data={component} />
 
               default:
                 return (

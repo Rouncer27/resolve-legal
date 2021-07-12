@@ -11,8 +11,9 @@ import {
   B2Gold,
 } from "../../styles/helpers"
 
+import BgGraphicOne from "../Graphics/BgGraphicOne"
+
 const LinkBoxes = ({ data }) => {
-  console.log(data)
   return (
     <LinkBoxesSection>
       <div className="wrapper">
@@ -43,14 +44,27 @@ const LinkBoxes = ({ data }) => {
           )
         })}
       </div>
+      <div className="graphic">
+        <BgGraphicOne />
+      </div>
     </LinkBoxesSection>
   )
 }
 
 const LinkBoxesSection = styled.section`
+  position: relative;
   .wrapper {
     ${standardWrapper};
     justify-content: flex-start;
+  }
+
+  .graphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   }
 `
 
