@@ -10,11 +10,12 @@ import {
   H3Brown,
   H3Gold,
   B1Brown,
+  fontSizer,
 } from "../../styles/helpers"
 
-const Wysiwyg = ({ data }) => {
+const Wysiwyg = ({ data, fontsize }) => {
   return (
-    <WysiwygStyled>
+    <WysiwygStyled fontsize={fontsize}>
       <div className="wrapper">
         <div
           className="wysiwygContent"
@@ -103,19 +104,25 @@ const WysiwygStyled = styled.div`
 
       li {
         ${B1Brown};
+        ${props =>
+          props.fontsize === "small"
+            ? fontSizer(1.4, 1.6, 76.8, 150, 1.8)
+            : null};
         position: relative;
         margin-bottom: 0.75em;
+        margin-bottom: ${props =>
+          props.fontsize === "small" ? "0.4rem" : "0.75em"};
+
         padding-left: 0.75em;
         font-size: 1.6rem;
 
         &::before {
-          font-family: ${fonts.fontAwesome};
           position: absolute;
-          top: 0.1em;
+          top: 0;
           left: 0;
           padding-right: 0.5em;
           color: rgba($grey, 0.75);
-          content: "\f0da";
+          content: "-";
         }
       }
     }
@@ -172,6 +179,10 @@ const WysiwygStyled = styled.div`
       ${B1Brown};
       ${props =>
         props.theme === "light" ? "color: rgba(245,245,245, 1)" : null};
+      ${props =>
+        props.fontsize === "small"
+          ? fontSizer(1.4, 1.6, 76.8, 150, 1.8)
+          : null};
 
       a {
         transition: all 0.3s;

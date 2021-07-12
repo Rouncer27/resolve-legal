@@ -175,6 +175,21 @@ export const homeQuery = graphql`
             }
           }
 
+          ... on WpPage_Acfmaintemplatefields_PageComponents_TitleTwo {
+            fieldGroupName
+            title
+            titleTag
+            content
+            image {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 1500)
+                }
+              }
+            }
+          }
+
           ... on WpPage_Acfmaintemplatefields_PageComponents_TitleSimpleContent {
             fieldGroupName
             title
