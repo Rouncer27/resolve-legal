@@ -20,16 +20,17 @@ const HeroPage = ({ data }) => {
 
 const HeroPageStyled = styled.div`
   position: relative;
-  height: 50rem;
+  height: 40rem;
   margin-top: 10rem;
   margin-bottom: 10rem;
+  z-index: 999999;
 
   @media (min-width: 768px) {
-    height: 55rem;
+    height: 50rem;
   }
 
   @media (min-width: 1025px) {
-    height: 75rem;
+    height: 65rem;
   }
 
   .heroImage {

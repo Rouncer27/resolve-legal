@@ -40,7 +40,7 @@ const TitleSimpleContent = ({ data }) => {
   )
 }
 
-const TitleSimpleContentSection = styled.div`
+const TitleSimpleContentSection = styled.section`
   position: relative;
 
   .wrapper {

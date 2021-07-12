@@ -11,19 +11,30 @@ const HeaderSubTwoMenu = ({
 }) => {
   return (
     <HeaderSubTwoMenuStyled subactive={subactive}>
-      {items.map((item, index) => (
-        <li key={index}>
-          <Link
-            onClick={() => {
-              handleIsActiveOff()
-              handleIsActiveOffTopLevel()
-            }}
-            to={`/${item.url}`}
-          >
-            {item.label}
-          </Link>
-        </li>
-      ))}
+      {items.map((item, index) => {
+        const slug = item.url
+          .split("/")
+          .filter(url => {
+            if (url === "http:" || url === "https:" || url === "") {
+              return false
+            }
+            return true
+          })
+          .join("/")
+        return (
+          <li key={index}>
+            <Link
+              onClick={() => {
+                handleIsActiveOff()
+                handleIsActiveOffTopLevel()
+              }}
+              to={`/${slug}`}
+            >
+              {item.label}
+            </Link>
+          </li>
+        )
+      })}
     </HeaderSubTwoMenuStyled>
   )
 }

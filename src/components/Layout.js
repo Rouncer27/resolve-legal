@@ -8,6 +8,7 @@ import Header from "./Header"
 import Footer from "./Footer"
 
 import BgGraphicOne from "./Graphics/BgGraphicOne"
+import { colors } from "../styles/helpers"
 
 const Layout = ({ children, pagestyles }) => {
   const data = useStaticQuery(graphql`
@@ -28,12 +29,15 @@ const Layout = ({ children, pagestyles }) => {
           heroactive={pagestyles?.acfPageStyles?.heroImageTop}
           siteTitle={data.site.siteMetadata?.title || `Title`}
         />
-        <MainStyled>
+        <MainStyled sidestripe={pagestyles?.acfPageStyles?.sideStripe}>
           {children}
           {pagestyles?.acfPageStyles?.backgroundGraphicActive && (
             <div className="bg-graphic">
               <BgGraphicOne />
             </div>
+          )}
+          {pagestyles?.acfPageStyles?.sideStripe && (
+            <div className="bg-stripe" />
           )}
         </MainStyled>
         <Footer />
@@ -52,6 +56,21 @@ const MainStyled = styled.main`
     width: 100%;
     height: 100%;
     z-index: -1;
+  }
+
+  .bg-stripe {
+    display: none;
+    position: absolute;
+    top: 50rem;
+    right: 0;
+    bottom: 50rem;
+    width: 10rem;
+    background-color: ${colors.colorAccent};
+    z-index: -1;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
   }
 `
 
