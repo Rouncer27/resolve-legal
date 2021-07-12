@@ -204,6 +204,23 @@ export const homeQuery = graphql`
               }
             }
           }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_ImageSimpleContent {
+            fieldGroupName
+            title
+            titleTag
+            content
+            backgroundGraphic
+            reverseImage
+            image {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 1500)
+                }
+              }
+            }
+          }
         }
       }
     }

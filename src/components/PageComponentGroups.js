@@ -11,6 +11,7 @@ import CalloutAction from "./PageComponents/CalloutAction"
 import TitleOne from "./PageComponents/TitleOne"
 import TitleSimpleContent from "./PageComponents/TitleSimpleContent"
 import HeroPage from "./PageComponents/HeroPage"
+import ImageSimpleContent from "./PageComponents/ImageSimpleContent"
 
 const PageComponentGroups = props => {
   const { components } = props
@@ -52,6 +53,9 @@ const PageComponentGroups = props => {
 
               case "Page_Acfmaintemplatefields_PageComponents_HeroPage":
                 return <HeroPage key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_ImageSimpleContent":
+                return <ImageSimpleContent key={index} data={component} />
 
               default:
                 return (
