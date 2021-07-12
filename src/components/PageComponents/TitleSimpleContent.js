@@ -1,13 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
-import {
-  medWrapper,
-  H1Brown,
-  B1Brown,
-  colors,
-  Btn1GoldRev,
-} from "../../styles/helpers"
+import { medWrapper, H1Brown, B1Brown, Btn1GoldRev } from "../../styles/helpers"
 import ElementTag from "../../utils/ElementTag"
 
 import BgGraphicOne from "../Graphics/BgGraphicOne"

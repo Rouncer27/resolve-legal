@@ -10,6 +10,7 @@ import LinkBoxes from "./PageComponents/LinkBoxes"
 import CalloutAction from "./PageComponents/CalloutAction"
 import TitleOne from "./PageComponents/TitleOne"
 import TitleTwo from "./PageComponents/TitleTwo"
+import TitleThree from "./PageComponents/TitleThree"
 import TitleSimpleContent from "./PageComponents/TitleSimpleContent"
 import HeroPage from "./PageComponents/HeroPage"
 import ImageSimpleContent from "./PageComponents/ImageSimpleContent"
@@ -51,6 +52,9 @@ const PageComponentGroups = props => {
 
               case "Page_Acfmaintemplatefields_PageComponents_TitleTwo":
                 return <TitleTwo key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_TitleThree":
+                return <TitleThree key={index} data={component} />
 
               case "Page_Acfmaintemplatefields_PageComponents_TitleSimpleContent":
                 return <TitleSimpleContent key={index} data={component} />

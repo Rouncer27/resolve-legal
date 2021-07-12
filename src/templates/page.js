@@ -190,6 +190,21 @@ export const pageTempQuery = graphql`
             }
           }
 
+          ... on WpPage_Acfmaintemplatefields_PageComponents_TitleThree {
+            fieldGroupName
+            title
+            titleTag
+            content
+            image {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 1500)
+                }
+              }
+            }
+          }
+
           ... on WpPage_Acfmaintemplatefields_PageComponents_TitleSimpleContent {
             fieldGroupName
             title
