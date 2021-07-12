@@ -33,10 +33,12 @@ const Btn1Base = css`
 export const Btn1Gold = css`
   ${Btn1Base};
   background: ${colors.colorTertiary};
+  border-color: ${colors.colorTertiary};
   color: ${colors.colorPrimary};
 
   &:hover {
     background: ${colors.colorSecondary};
+    border-color: ${colors.colorSecondary};
     color: ${colors.white};
   }
 
