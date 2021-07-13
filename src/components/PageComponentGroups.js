@@ -14,6 +14,8 @@ import TitleThree from "./PageComponents/TitleThree"
 import TitleSimpleContent from "./PageComponents/TitleSimpleContent"
 import HeroPage from "./PageComponents/HeroPage"
 import ImageSimpleContent from "./PageComponents/ImageSimpleContent"
+import Logos from "./PageComponents/Logos"
+import WysiwygImages from "./PageComponents/WysiwygImages"
 
 const PageComponentGroups = props => {
   const { components } = props
@@ -64,6 +66,12 @@ const PageComponentGroups = props => {
 
               case "Page_Acfmaintemplatefields_PageComponents_ImageSimpleContent":
                 return <ImageSimpleContent key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_Logos":
+                return <Logos key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_WysiwygImages":
+                return <WysiwygImages key={index} data={component} />
 
               default:
                 return (

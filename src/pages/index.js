@@ -251,6 +251,39 @@ export const homeQuery = graphql`
               }
             }
           }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_Logos {
+            fieldGroupName
+            title
+            logos {
+              url
+              logo {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 750)
+                  }
+                }
+              }
+            }
+          }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_WysiwygImages {
+            fieldGroupName
+            title
+            wysiwyg
+            imagesPosition
+            sideImages {
+              image {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 1500)
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
