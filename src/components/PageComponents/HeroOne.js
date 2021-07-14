@@ -102,7 +102,10 @@ const HeroSectionOneStyled = styled.div`
         }
       }
 
-      h2 {
+      h1,
+      h2,
+      h3,
+      h4 {
         ${H1Gold};
         margin-top: 0;
       }
