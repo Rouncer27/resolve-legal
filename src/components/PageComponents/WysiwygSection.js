@@ -6,7 +6,6 @@ import Wysiwyg from "./Wysiwyg"
 import BgGraphicOne from "../Graphics/BgGraphicOne"
 
 const WysiwygSection = ({ data }) => {
-  console.log(data)
   return (
     <WysiwygSectionStyled>
       <div className="wrapper">

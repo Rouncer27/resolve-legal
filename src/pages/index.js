@@ -205,6 +205,27 @@ export const homeQuery = graphql`
             }
           }
 
+          ... on WpPage_Acfmaintemplatefields_PageComponents_TitleFour {
+            fieldGroupName
+            title
+            titleTag
+            content
+            buttonRequired
+            buttonText
+            buttonSlug
+            secondButton
+            secondButtonText
+            secondButtonSlug
+            image {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 1500)
+                }
+              }
+            }
+          }
+
           ... on WpPage_Acfmaintemplatefields_PageComponents_TitleSimpleContent {
             fieldGroupName
             title
