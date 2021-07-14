@@ -242,6 +242,9 @@ export const pageTempQuery = graphql`
             content
             backgroundGraphic
             reverseImage
+            buttonRequired
+            buttonText
+            buttonSlug
             image {
               altText
               localFile {
@@ -279,6 +282,37 @@ export const pageTempQuery = graphql`
                 localFile {
                   childImageSharp {
                     gatsbyImageData(width: 1500)
+                  }
+                }
+              }
+            }
+          }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_Directory {
+            fieldGroupName
+
+            sections {
+              title
+              sectionDirectoryTitle
+              image {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 1000)
+                  }
+                }
+              }
+
+              items {
+                title
+                content
+                url
+                image {
+                  altText
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData(width: 500)
+                    }
                   }
                 }
               }

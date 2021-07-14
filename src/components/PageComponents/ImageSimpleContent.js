@@ -1,13 +1,20 @@
 import React from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { B1Brown, H1Brown, medWrapper, fontSizer } from "../../styles/helpers"
+import {
+  B1Brown,
+  H1Brown,
+  medWrapper,
+  fontSizer,
+  Btn1GoldRev,
+} from "../../styles/helpers"
 
 import ElementTag from "../../utils/ElementTag"
 import BgGraphicOne from "../Graphics/BgGraphicOne"
+import { Link } from "gatsby"
 
 const ImageSimpleContent = ({ data }) => {
-  console.log(data)
+  console.log("Trevor: ", data)
   const mainTitleDisplay = ElementTag(data.titleTag, data.title)
   const imageDisplay = getImage(
     data.image.localFile.childImageSharp.gatsbyImageData
@@ -22,6 +29,11 @@ const ImageSimpleContent = ({ data }) => {
         <div className="content">
           {mainTitleDisplay}
           <div dangerouslySetInnerHTML={{ __html: data.content }} />
+          {data.buttonRequired && (
+            <div className="button">
+              <Link to={data.buttonSlug}>{data.buttonText}</Link>
+            </div>
+          )}
         </div>
       </div>
       {data.backgroundGraphic && (
@@ -75,6 +87,15 @@ const ImageSimpleContentSection = styled.section`
 
       &:last-of-type {
         margin: 0;
+      }
+    }
+
+    .button {
+      width: 100%;
+      margin-top: 2.5rem;
+
+      a {
+        ${Btn1GoldRev};
       }
     }
   }

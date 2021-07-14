@@ -1,14 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import {
-  BigWrapper,
-  colors,
-  H1Brown,
-  H2Brown,
-  medWrapper,
-  standardWrapper,
-} from "../../styles/helpers"
+import { H1Brown, medWrapper } from "../../styles/helpers"
 
 import Wysiwyg from "./Wysiwyg"
 

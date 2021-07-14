@@ -48,3 +48,8 @@ export const B2Gold = css`
   ${B2Base};
   color: ${colors.colorTertiary};
 `
+
+export const B2Brown = css`
+  ${B2Base};
+  color: ${colors.colorShad};
+`

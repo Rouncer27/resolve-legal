@@ -21,7 +21,7 @@ const TitleTwo = ({ data }) => {
         </div>
         <div className="title">
           <div className="title__inner">{mainTitleDisplay}</div>
-          <div>
+          <div className="title__content">
             <Wysiwyg fontsize="small" data={{ wysiwyg: data.content }} />
           </div>
         </div>
@@ -53,17 +53,24 @@ const TitleTwoStyled = styled.section`
       margin-left: 4rem;
     }
 
+    &__content {
+      @media (min-width: 1025px) {
+        max-width: 60rem;
+        margin-right: auto;
+      }
+    }
+
     h1,
     h2,
     h3,
     h4 {
       ${H1Brown};
       margin-top: 1rem;
+      margin-bottom: 1rem;
     }
 
     &__inner {
       border-top: solid 0.2rem ${colors.colorTertiary};
-      padding-bottom: 5rem;
     }
   }
 `
