@@ -29,7 +29,7 @@ const HeaderNavItem = ({ item, top }) => {
   }
 
   const needsRefresh = slug === "donate"
-
+  console.log("TOP", top)
   return (
     <HeaderNavItemStyled top={top}>
       <Link
@@ -67,27 +67,27 @@ const HeaderNavItemStyled = styled.li`
     ${props => (props.top ? Nav1White : Nav1Brown)}
     margin: 0 auto;
     border-top: 0.2rem solid
-      ${props => (props.top ? colors.colorAccent : colors.colorTertiary)};
+      ${props => (props.top ? colors.white : colors.colorTertiary)};
     border-bottom: 0.2rem solid
-      ${props => (props.top ? colors.colorAccent : colors.colorTertiary)};
+      ${props => (props.top ? colors.white : colors.colorTertiary)};
     border-color: transparent;
     text-align: center;
     transition: all 0.35s ease-in-out;
 
     &:hover {
       border-color: ${props =>
-        props.top ? colors.colorAccent : colors.colorTertiary};
+        props.top ? colors.colorTertiary : colors.colorTertiary};
       color: ${props =>
-        props.top ? colors.colorAccent : colors.colorTertiary};
+        props.top ? colors.colorTertiary : colors.colorTertiary};
     }
 
     &[aria-current="page"] {
       color: ${props =>
-        props.top ? colors.colorAccent : colors.colorTertiary};
-      border-color: ${colors.colorSecondary};
+        props.top ? colors.colorTertiary : colors.colorTertiary};
+      border-color: ${colors.colorTertiary};
 
       &:hover {
-        color: ${props => (props.top ? colors.colorAccent : colors.white)};
+        color: ${props => (props.top ? colors.white : colors.white)};
         cursor: default;
       }
     }

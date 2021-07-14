@@ -8,7 +8,6 @@ import Wysiwyg from "./Wysiwyg"
 import { Link } from "gatsby"
 
 const TitleFour = ({ data }) => {
-  console.log("Title Four: ", data)
   const mainTitleDisplay = ElementTag(data.titleTag, data.title)
   const imageDisplay = getImage(
     data.image.localFile.childImageSharp.gatsbyImageData
