@@ -15,7 +15,6 @@ import {
 import BgGraphicOne from "../Graphics/BgGraphicOne"
 
 const Directory = ({ data }) => {
-  console.log("Directory here: ", data)
   return (
     <DirectorySection>
       <div className="wrapper">
@@ -130,6 +129,7 @@ const DirectorySection = styled.section`
     width: 100%;
 
     .dir-section {
+      position: relative;
       margin: 5rem auto;
 
       .section-title {
@@ -143,10 +143,23 @@ const DirectorySection = styled.section`
       }
 
       .items {
+        position: relative;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
         align-items: center;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          bottom: 1rem;
+          left: calc(50% - 1.5rem);
+          width: 0.25rem;
+          background-color: ${colors.colorTertiary};
+          transform: translateX(-50%);
+          content: "";
+          z-index: 500;
+        }
       }
     }
   }
@@ -193,8 +206,8 @@ const DirItem = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: calc(100% / 2);
-  margin: 2rem 0;
+  width: calc((100% / 2) - 5rem);
+  margin: 2.5rem;
 
   .logo-image {
     width: calc(20%);

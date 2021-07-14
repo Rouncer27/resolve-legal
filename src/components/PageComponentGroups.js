@@ -17,6 +17,7 @@ import ImageSimpleContent from "./PageComponents/ImageSimpleContent"
 import Logos from "./PageComponents/Logos"
 import WysiwygImages from "./PageComponents/WysiwygImages"
 import Directory from "./PageComponents/Directory"
+import ImageLinks from "./PageComponents/ImageLinks"
 
 const PageComponentGroups = props => {
   const { components } = props
@@ -76,6 +77,9 @@ const PageComponentGroups = props => {
 
               case "Page_Acfmaintemplatefields_PageComponents_Directory":
                 return <Directory key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_ImageLinks":
+                return <ImageLinks key={index} data={component} />
 
               default:
                 return (

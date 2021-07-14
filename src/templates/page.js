@@ -318,6 +318,23 @@ export const pageTempQuery = graphql`
               }
             }
           }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_ImageLinks {
+            fieldGroupName
+            title
+            links {
+              title
+              slug
+              image {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 1000)
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
