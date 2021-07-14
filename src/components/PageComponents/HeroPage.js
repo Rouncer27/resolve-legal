@@ -4,7 +4,6 @@ import styled from "styled-components"
 import BgGraphicOne from "../Graphics/BgGraphicOne"
 
 const HeroPage = ({ data }) => {
-  console.log(data)
   const heroImage = data.image.localFile.childImageSharp.fluid
   return (
     <HeroPageStyled>

@@ -4,7 +4,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { fonts, H2Brown, standardWrapper } from "../../styles/helpers"
 
 const Logos = ({ data }) => {
-  console.log(data)
   return (
     <LogosSection>
       <div className="wrapper">

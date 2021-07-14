@@ -20,6 +20,7 @@ import WysiwygImages from "./PageComponents/WysiwygImages"
 import Directory from "./PageComponents/Directory"
 import ImageLinks from "./PageComponents/ImageLinks"
 import WysiwygSection from "./PageComponents/WysiwygSection"
+import BlockItems from "./PageComponents/BlockItems"
 
 const PageComponentGroups = props => {
   const { components } = props
@@ -88,6 +89,9 @@ const PageComponentGroups = props => {
 
               case "Page_Acfmaintemplatefields_PageComponents_WysiwygSection":
                 return <WysiwygSection key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_BlockItems":
+                return <BlockItems key={index} data={component} />
 
               default:
                 return (

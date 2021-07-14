@@ -14,7 +14,6 @@ import BgGraphicOne from "../Graphics/BgGraphicOne"
 import { Link } from "gatsby"
 
 const ImageSimpleContent = ({ data }) => {
-  console.log("Trevor: ", data)
   const mainTitleDisplay = ElementTag(data.titleTag, data.title)
   const imageDisplay = getImage(
     data.image.localFile.childImageSharp.gatsbyImageData

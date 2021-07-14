@@ -2,16 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import ElementTag from "../../utils/ElementTag"
-import {
-  B1Brown,
-  BigWrapper,
-  colors,
-  H1Brown,
-  medWrapper,
-} from "../../styles/helpers"
+import { B1Brown, colors, H1Brown, medWrapper } from "../../styles/helpers"
 
 const TitleThree = ({ data }) => {
-  console.log(data)
   const mainTitleDisplay = ElementTag(data.titleTag, data.title)
   const imageDisplay = getImage(
     data.image.localFile.childImageSharp.gatsbyImageData

@@ -364,6 +364,22 @@ export const pageTempQuery = graphql`
             sidebar
             backgroundGraphic
           }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_BlockItems {
+            fieldGroupName
+            blockItems {
+              title
+              content
+              image {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 1500)
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
