@@ -8,6 +8,7 @@ import SocialMediaIcons from "./PageComponents/SocialMediaIcons"
 import Testimonials from "./PageComponents/Testimonials"
 import LinkBoxes from "./PageComponents/LinkBoxes"
 import CalloutAction from "./PageComponents/CalloutAction"
+import TitleNoImage from "./PageComponents/TitleNoImage"
 import TitleOne from "./PageComponents/TitleOne"
 import TitleTwo from "./PageComponents/TitleTwo"
 import TitleThree from "./PageComponents/TitleThree"
@@ -22,6 +23,8 @@ import ImageLinks from "./PageComponents/ImageLinks"
 import WysiwygSection from "./PageComponents/WysiwygSection"
 import BlockItems from "./PageComponents/BlockItems"
 import TeamMembers from "./PageComponents/TeamMembers"
+import FeaturedEvents from "./PageComponents/FeaturedEvents"
+import EventsList from "./PageComponents/EventsList"
 
 const PageComponentGroups = props => {
   const { components } = props
@@ -96,6 +99,15 @@ const PageComponentGroups = props => {
 
               case "Page_Acfmaintemplatefields_PageComponents_TeamMembers":
                 return <TeamMembers key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_TitleNoImage":
+                return <TitleNoImage key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_FeaturedEvents":
+                return <FeaturedEvents key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_EventsList":
+                return <EventsList key={index} data={component} />
 
               default:
                 return (

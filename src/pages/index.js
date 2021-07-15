@@ -161,6 +161,13 @@ export const homeQuery = graphql`
             buttonSlug
           }
 
+          ... on WpPage_Acfmaintemplatefields_PageComponents_TitleNoImage {
+            fieldGroupName
+            title
+            titleTag
+            content
+          }
+
           ... on WpPage_Acfmaintemplatefields_PageComponents_TitleOne {
             fieldGroupName
             title
@@ -384,6 +391,25 @@ export const homeQuery = graphql`
           ... on WpPage_Acfmaintemplatefields_PageComponents_TeamMembers {
             fieldGroupName
             display
+          }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_EventsList {
+            fieldGroupName
+            display
+          }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_FeaturedEvents {
+            fieldGroupName
+            featuredEvents {
+              image {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 1000)
+                  }
+                }
+              }
+            }
           }
         }
       }
