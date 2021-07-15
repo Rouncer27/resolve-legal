@@ -380,6 +380,11 @@ export const pageTempQuery = graphql`
               }
             }
           }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_TeamMembers {
+            fieldGroupName
+            display
+          }
         }
       }
     }

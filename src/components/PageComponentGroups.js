@@ -21,6 +21,7 @@ import Directory from "./PageComponents/Directory"
 import ImageLinks from "./PageComponents/ImageLinks"
 import WysiwygSection from "./PageComponents/WysiwygSection"
 import BlockItems from "./PageComponents/BlockItems"
+import TeamMembers from "./PageComponents/TeamMembers"
 
 const PageComponentGroups = props => {
   const { components } = props
@@ -92,6 +93,9 @@ const PageComponentGroups = props => {
 
               case "Page_Acfmaintemplatefields_PageComponents_BlockItems":
                 return <BlockItems key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_TeamMembers":
+                return <TeamMembers key={index} data={component} />
 
               default:
                 return (
