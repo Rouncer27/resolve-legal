@@ -5,11 +5,11 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 import {
   colors,
   H2Gold,
-  standardWrapper,
   H4IntroGold,
   fonts,
   medWrapper,
 } from "../../styles/helpers"
+import BgGraphicOne from "../Graphics/BgGraphicOne"
 
 const getData = graphql`
   {
@@ -40,7 +40,6 @@ const TeamMembers = ({ data }) => {
   const teamData = useStaticQuery(getData)
   const members = teamData.team.edges
   if (!data.display) return null
-  console.log(members)
 
   return (
     <TeamMembersSection>
@@ -68,14 +67,28 @@ const TeamMembers = ({ data }) => {
           )
         })}
       </div>
+      <div className="graphic">
+        <BgGraphicOne />
+      </div>
     </TeamMembersSection>
   )
 }
 
 const TeamMembersSection = styled.section`
+  position: relative;
+
   .wrapper {
     ${medWrapper};
     justify-content: flex-start;
+  }
+
+  .graphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 140%;
+    z-index: -1;
   }
 `
 

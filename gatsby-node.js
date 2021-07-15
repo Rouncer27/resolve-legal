@@ -24,6 +24,15 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+
+        members: allWpTeamMember {
+          edges {
+            node {
+              slug
+              id
+            }
+          }
+        }
       }
     `)
 
@@ -48,6 +57,21 @@ exports.createPages = async ({ graphql, actions }) => {
           },
         })
       }
+    })
+
+    const members = data.members.edges
+    members.forEach(({ node }, index) => {
+      createPage({
+        path: `/our-team/${node.slug}/`,
+        component: path.resolve("./src/templates/team.js"),
+        context: {
+          id: node.id,
+          slug: node.slug,
+          next: index === 0 ? null : members[index - 1].node.slug,
+          prev:
+            index === members.length - 1 ? null : members[index + 1].node.slug,
+        },
+      })
     })
 
     const posts = data.posts.edges
