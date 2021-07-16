@@ -400,16 +400,7 @@ export const pageTempQuery = graphql`
 
           ... on WpPage_Acfmaintemplatefields_PageComponents_FeaturedEvents {
             fieldGroupName
-            featuredEvents {
-              image {
-                altText
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData(width: 1000)
-                  }
-                }
-              }
-            }
+            featuredEvents
           }
         }
       }
