@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/Layout"
 import Seo from "../components/SEO"
@@ -12,6 +12,8 @@ import {
   H1Brown,
   B1Brown,
   fontSizer,
+  Btn1GoldRev,
+  H3Gold,
 } from "../styles/helpers"
 
 import Wysiwyg from "../components/PageComponents/Wysiwyg"
@@ -49,8 +51,19 @@ const Post = props => {
           </div>
         </TitleComponent>
         <ArticleContent>
-          <Wysiwyg fontsize="small" data={{ wysiwyg: post.acfPosts.content }} />
+          <div className="main-content">
+            <Wysiwyg
+              fontsize="small"
+              data={{ wysiwyg: post.acfPosts.content }}
+            />
+          </div>
+          <div className="side-quote">
+            <p>{post.acfPosts.quoteOnSide}</p>
+          </div>
         </ArticleContent>
+        <PostNav>
+          <Link to="/resources">Back To All Articles</Link>
+        </PostNav>
         <div className="graphic">
           <BgGraphicOne />
         </div>
@@ -71,7 +84,7 @@ const PostMain = styled.main`
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 60%;
+    height: 75%;
     z-index: -1;
   }
 `
@@ -128,7 +141,38 @@ const TitleComponent = styled.section`
   }
 `
 
-const ArticleContent = styled.div``
+const ArticleContent = styled.div`
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  max-width: 110rem;
+  margin: auto;
+  padding: 2.5rem;
+
+  .main-content {
+    width: 80%;
+    padding: 0 2rem;
+  }
+
+  .side-quote {
+    width: 20%;
+    padding: 2.5rem 1rem 2.5rem 0;
+
+    p {
+      ${H3Gold};
+      line-height: 1.39;
+    }
+  }
+`
+
+const PostNav = styled.div`
+  ${standardWrapper};
+
+  a {
+    ${Btn1GoldRev};
+  }
+`
 
 export const query = graphql`
   query singlePostQuery($slug: String!) {
