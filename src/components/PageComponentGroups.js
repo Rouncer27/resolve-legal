@@ -25,6 +25,7 @@ import BlockItems from "./PageComponents/BlockItems"
 import TeamMembers from "./PageComponents/TeamMembers"
 import FeaturedEvents from "./PageComponents/FeaturedEvents"
 import EventsList from "./PageComponents/EventsList"
+import ArticlesList from "./PageComponents/ArticlesList"
 
 const PageComponentGroups = props => {
   const { components } = props
@@ -108,6 +109,9 @@ const PageComponentGroups = props => {
 
               case "Page_Acfmaintemplatefields_PageComponents_EventsList":
                 return <EventsList key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_ResourceArticles":
+                return <ArticlesList key={index} data={component} />
 
               default:
                 return (

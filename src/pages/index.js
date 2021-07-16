@@ -402,6 +402,11 @@ export const homeQuery = graphql`
             fieldGroupName
             featuredEvents
           }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_ResourceArticles {
+            fieldGroupName
+            display
+          }
         }
       }
     }
