@@ -1,0 +1,214 @@
+import React from "react"
+import styled from "styled-components"
+import { graphql } from "gatsby"
+import Layout from "../components/Layout"
+import Seo from "../components/SEO"
+import BgGraphicOne from "../components/Graphics/BgGraphicOne"
+import {
+  colors,
+  H2Brown,
+  medWrapper,
+  fontSizer,
+  fonts,
+  B1Brown,
+  Btn1GoldRev,
+  standardWrapper,
+} from "../styles/helpers"
+
+const event = props => {
+  const { event, allEvents } = props.data
+  const prevPost = props.pageContext.prev
+  const nextPost = props.pageContext.next
+
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ]
+
+  const dateArray = event.acfEvents.dateTime.split("/").join(" ").split(" ")
+
+  const dbDay = parseInt(dateArray[0])
+  const dbMonth = parseInt(dateArray[1])
+  const monthName = months[dbMonth]
+
+  console.log(event)
+  console.log(allEvents)
+
+  return (
+    <Layout>
+      <Seo title={event.title} />
+      <EventMain>
+        <div className="wrapper">
+          <div className="event-article">
+            <div className="date">
+              <p>
+                <span>{monthName}.</span>
+                <span className="big-number">{dbDay}</span>
+              </p>
+            </div>
+            <div className="content">
+              <div className="content__title">
+                <h2>{event.title}</h2>
+              </div>
+              <div className="content__location">
+                <p>
+                  <span>Location: </span>
+                  {event.acfEvents.location}
+                </p>
+                <p>
+                  <span>Time: </span>
+                  {event.acfEvents.dateTime}
+                </p>
+              </div>
+              <div
+                className="content__excerpt"
+                dangerouslySetInnerHTML={{
+                  __html: event.acfEvents.fullDetails,
+                }}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="graphic">
+          <BgGraphicOne />
+        </div>
+      </EventMain>
+    </Layout>
+  )
+}
+
+const EventMain = styled.main`
+  position: relative;
+  .wrapper {
+    ${standardWrapper};
+  }
+
+  .graphic {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    z-index: -1;
+  }
+
+  .event-article {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 3rem 0;
+    padding: 2rem;
+    border-top: solid 0.25rem ${colors.colorTertiary};
+  }
+
+  .date {
+    width: 25%;
+    text-align: center;
+
+    p {
+      ${H2Brown};
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0;
+      font-weight: normal;
+      color: ${colors.colorPrimary};
+
+      span {
+        display: block;
+        margin: 0;
+      }
+
+      .big-number {
+        ${fontSizer(5, 9, 76.8, 150, 3.0)};
+        font-family: ${fonts.fontSecondary};
+      }
+    }
+  }
+
+  .content {
+    width: 75%;
+
+    &__title {
+      h2 {
+        ${H2Brown};
+        font-family: ${fonts.fontSecondary};
+      }
+    }
+
+    &__location {
+      padding-bottom: 2.5rem;
+
+      p {
+        ${B1Brown};
+        ${fontSizer(1.4, 1.6, 76.8, 150, 1.8)};
+        margin: 0;
+
+        span {
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    &__excerpt {
+      p {
+        ${B1Brown};
+        ${fontSizer(1.4, 1.6, 76.8, 150, 1.8)};
+      }
+    }
+
+    &__button {
+      a {
+        ${Btn1GoldRev};
+      }
+    }
+  }
+`
+
+export const query = graphql`
+  query singleEventQuery($slug: String!) {
+    event: wpResolveEvents(slug: { eq: $slug }) {
+      slug
+      id
+      title
+      acfEvents {
+        dateTime
+        excerpt
+        fieldGroupName
+        fullDetails
+        location
+        featuredImage {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData(width: 1000)
+            }
+          }
+        }
+      }
+    }
+
+    allEvents: allWpResolveEvents {
+      edges {
+        node {
+          title
+          slug
+        }
+      }
+    }
+  }
+`
+
+export default event

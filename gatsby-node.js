@@ -33,6 +33,15 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+
+        events: allWpResolveEvents {
+          edges {
+            node {
+              slug
+              id
+            }
+          }
+        }
       }
     `)
 
@@ -70,6 +79,21 @@ exports.createPages = async ({ graphql, actions }) => {
           next: index === 0 ? null : members[index - 1].node.slug,
           prev:
             index === members.length - 1 ? null : members[index + 1].node.slug,
+        },
+      })
+    })
+
+    const events = data.events.edges
+    events.forEach(({ node }, index) => {
+      createPage({
+        path: `/events/${node.slug}/`,
+        component: path.resolve("./src/templates/event.js"),
+        context: {
+          id: node.id,
+          slug: node.slug,
+          next: index === 0 ? null : events[index - 1].node.slug,
+          prev:
+            index === events.length - 1 ? null : events[index + 1].node.slug,
         },
       })
     })

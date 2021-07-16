@@ -12,6 +12,8 @@ import {
   Btn1GoldRev,
 } from "../../styles/helpers"
 
+import BgGraphicOne from "../Graphics/BgGraphicOne"
+
 const getData = graphql`
   {
     events: allWpResolveEvents {
@@ -53,8 +55,6 @@ const EventsList = ({ data }) => {
   const events = eventData.events.edges
   if (!data.display) return null
 
-  console.log(events)
-
   return (
     <EventsListSection>
       <div className="wrapper">
@@ -81,7 +81,6 @@ const EventsList = ({ data }) => {
 
           const dbDay = parseInt(dateArray[0])
           const dbMonth = parseInt(dateArray[1])
-          const dbYear = parseInt(dateArray[2])
           const monthName = months[dbMonth]
 
           return (
@@ -122,13 +121,27 @@ const EventsList = ({ data }) => {
           )
         })}
       </div>
+      <div className="graphic">
+        <BgGraphicOne />
+      </div>
     </EventsListSection>
   )
 }
 
 const EventsListSection = styled.section`
+  position: relative;
+
   .wrapper {
     ${medWrapper};
+  }
+
+  .graphic {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    z-index: -1;
   }
 `
 

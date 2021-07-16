@@ -29,7 +29,6 @@ const HeaderNavItem = ({ item, top }) => {
   }
 
   const needsRefresh = slug === "donate"
-  console.log("TOP", top)
   return (
     <HeaderNavItemStyled top={top}>
       <Link
