@@ -4,17 +4,13 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import {
   colors,
-  H2Brown,
   medWrapper,
   fontSizer,
   fonts,
-  B1Brown,
   Btn1GoldRev,
   H2Gold,
   B1White,
 } from "../../styles/helpers"
-
-import BgGraphicOne from "../Graphics/BgGraphicOne"
 
 const getData = graphql`
   {

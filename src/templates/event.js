@@ -7,7 +7,6 @@ import BgGraphicOne from "../components/Graphics/BgGraphicOne"
 import {
   colors,
   H2Brown,
-  medWrapper,
   fontSizer,
   fonts,
   B1Brown,
@@ -36,13 +35,9 @@ const event = props => {
   ]
 
   const dateArray = event.acfEvents.dateTime.split("/").join(" ").split(" ")
-
   const dbDay = parseInt(dateArray[0])
   const dbMonth = parseInt(dateArray[1])
   const monthName = months[dbMonth]
-
-  console.log(event)
-  console.log(allEvents)
 
   return (
     <Layout>
@@ -89,6 +84,7 @@ const event = props => {
 
 const EventMain = styled.main`
   position: relative;
+
   .wrapper {
     ${standardWrapper};
   }
