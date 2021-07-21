@@ -71,11 +71,15 @@ const LinkBoxesSection = styled.section`
 const Box = styled(Link)`
   position: relative;
   width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 4rem 3rem;
   background-color: ${colors.colorAccent};
 
   @media (min-width: 768px) {
     width: calc((100% / 2) - 2rem);
     margin: 1rem;
+    padding: 4rem 3rem;
   }
 
   @media (min-width: 1025px) {
@@ -88,9 +92,14 @@ const Box = styled(Link)`
     width: 100%;
 
     &__inner {
-      max-width: 4.5rem;
-      height: 5rem;
+      max-width: 6.5rem;
       margin: 2rem auto;
+
+      @media (min-width: 768px) {
+        max-width: 4.5rem;
+        height: 5rem;
+        margin: 2rem auto;
+      }
     }
   }
 
