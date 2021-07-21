@@ -407,6 +407,16 @@ export const pageTempQuery = graphql`
             fieldGroupName
             display
           }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_LunchLearnForm {
+            fieldGroupName
+            displayForm
+          }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_ContactForm {
+            fieldGroupName
+            displayForm
+          }
         }
       }
     }

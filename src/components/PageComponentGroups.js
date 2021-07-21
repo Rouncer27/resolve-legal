@@ -26,6 +26,8 @@ import TeamMembers from "./PageComponents/TeamMembers"
 import FeaturedEvents from "./PageComponents/FeaturedEvents"
 import EventsList from "./PageComponents/EventsList"
 import ArticlesList from "./PageComponents/ArticlesList"
+import LunchLearnForm from "./PageComponents/LunchLearnForm"
+import ContactForm from "./PageComponents/ContactForm"
 
 const PageComponentGroups = props => {
   const { components } = props
@@ -112,6 +114,12 @@ const PageComponentGroups = props => {
 
               case "Page_Acfmaintemplatefields_PageComponents_ResourceArticles":
                 return <ArticlesList key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_LunchLearnForm":
+                return <LunchLearnForm key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_ContactForm":
+                return <ContactForm key={index} data={component} />
 
               default:
                 return (
