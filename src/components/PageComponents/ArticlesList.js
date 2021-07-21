@@ -92,10 +92,16 @@ const ArticlesListSection = styled.section`
 const ArticleCard = styled.div`
   width: 100%;
   position: relative;
+  margin: 2rem 0;
   padding-bottom: 7.5rem;
   background-color: ${colors.colorAccent};
 
   @media (min-width: 768px) {
+    width: calc((100% / 2) - 2rem);
+    margin: 1rem;
+  }
+
+  @media (min-width: 1025px) {
     width: calc((100% / 3) - 2rem);
     margin: 1rem;
   }

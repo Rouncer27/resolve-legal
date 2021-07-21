@@ -49,6 +49,7 @@ const WysiwygSectionStyled = styled.section`
   }
 
   .sidebar {
+    display: none;
     position: absolute;
     top: 0;
     right: 0;
@@ -57,6 +58,10 @@ const WysiwygSectionStyled = styled.section`
     height: 100%;
     background-color: ${colors.colorAccent};
     z-index: 5;
+
+    @media (min-width: 1025px) {
+      display: block;
+    }
   }
 
   .graphic {

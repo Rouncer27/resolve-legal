@@ -87,7 +87,7 @@ const TeamMembersSection = styled.section`
     top: 0;
     left: 0;
     width: 100%;
-    height: 140%;
+    height: 100%;
     z-index: -1;
   }
 `
@@ -95,9 +95,11 @@ const TeamMembersSection = styled.section`
 const Member = styled(Link)`
   position: relative;
   width: calc(100%);
+  margin: 2.5rem 0;
 
   @media (min-width: 768px) {
-    width: calc(100% / 3);
+    width: calc((100% / 3) - 2rem);
+    margin: 1rem;
   }
 
   @media (min-width: 1025px) {

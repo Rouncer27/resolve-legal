@@ -51,7 +51,10 @@ const ImageLinks = ({ data }) => {
 
 const ImageLinksSection = styled.section`
   position: relative;
-  padding: 5rem 0;
+
+  @media (min-width: 768px) {
+    padding: 5rem 0;
+  }
 
   .wrapper {
     ${medWrapper};
@@ -84,6 +87,7 @@ const ImageLinksSection = styled.section`
 
 const Column = styled(Link)`
   width: 100%;
+  margin: 2rem 0;
 
   @media (min-width: 768px) {
     width: calc(33.333333% - 2rem);

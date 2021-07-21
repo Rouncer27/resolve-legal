@@ -110,8 +110,12 @@ const EventMain = styled.main`
   }
 
   .date {
-    width: 25%;
-    text-align: center;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: 25%;
+      text-align: center;
+    }
 
     p {
       ${H2Brown};
@@ -128,14 +132,18 @@ const EventMain = styled.main`
       }
 
       .big-number {
-        ${fontSizer(5, 9, 76.8, 150, 3.0)};
+        ${fontSizer(5, 9, 76.8, 150, 5.0)};
         font-family: ${fonts.fontSecondary};
       }
     }
   }
 
   .content {
-    width: 75%;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: 75%;
+    }
 
     &__title {
       h2 {

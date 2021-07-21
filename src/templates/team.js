@@ -5,13 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout"
 import Seo from "../components/SEO"
-import {
-  colors,
-  H1Gold,
-  H2Gold,
-  medWrapper,
-  standardWrapper,
-} from "../styles/helpers"
+import { colors, H1Gold, H2Gold, standardWrapper } from "../styles/helpers"
 
 import Wysiwyg from "../components/PageComponents/Wysiwyg"
 
@@ -95,7 +89,13 @@ const TeamMember = styled.main`
   }
 
   .image {
-    width: 20%;
+    width: 65%;
+    margin-right: auto;
+    margin-left: 0;
+
+    @media (min-width: 768px) {
+      width: 20%;
+    }
   }
 
   .title {

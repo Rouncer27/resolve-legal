@@ -53,14 +53,17 @@ const LogosSection = styled.section`
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    margin: 4rem 0;
   }
 `
 
 const Logo = styled.div`
-  width: calc(100% / 2);
+  width: calc((100% / 2) - 4rem);
+  margin: 2rem;
 
   @media (min-width: 768px) {
-    width: calc(100% / 3);
+    width: calc((100% / 4) - 5rem);
+    margin: 2.5rem;
   }
 
   @media (min-width: 1025px) {

@@ -39,9 +39,11 @@ const TitleTwoStyled = styled.section`
 
   .image {
     width: calc(100%);
+    margin-bottom: 5rem;
 
     @media (min-width: 768px) {
       width: calc(35%);
+      margin-bottom: 0;
     }
   }
 

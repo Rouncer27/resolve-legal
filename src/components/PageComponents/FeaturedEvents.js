@@ -125,6 +125,7 @@ const FeaturedEventsSection = styled.section`
 const EventBlock = styled(Link)`
   position: relative;
   width: 100%;
+  margin: 4rem 0;
 
   @media (min-width: 768px) {
     width: calc((100% / 3) - 2rem);

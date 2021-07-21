@@ -150,6 +150,7 @@ const DirectorySection = styled.section`
         align-items: center;
 
         &::before {
+          display: none;
           position: absolute;
           top: 0;
           bottom: 1rem;
@@ -159,6 +160,12 @@ const DirectorySection = styled.section`
           transform: translateX(-50%);
           content: "";
           z-index: 500;
+        }
+
+        @media (min-width: 768px) {
+          &::before {
+            display: block;
+          }
         }
       }
     }
@@ -176,7 +183,12 @@ const DirectorySection = styled.section`
 
 const NavItem = styled.li`
   position: relative;
-  width: calc(100% / 3);
+  width: calc(100%);
+  margin: 4rem 0;
+
+  @media (min-width: 768px) {
+    width: calc(100% / 3);
+  }
 
   @media (min-width: 1025px) {
     width: calc((100% / 3) - 2rem);
@@ -206,8 +218,13 @@ const DirItem = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: calc((100% / 2) - 5rem);
-  margin: 2.5rem;
+  width: calc(100%);
+  margin: 3rem 0;
+
+  @media (min-width: 768px) {
+    width: calc((100% / 2) - 5rem);
+    margin: 2.5rem;
+  }
 
   .logo-image {
     width: calc(20%);

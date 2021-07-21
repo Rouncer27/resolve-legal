@@ -151,13 +151,21 @@ const ArticleContent = styled.div`
   padding: 2.5rem;
 
   .main-content {
-    width: 80%;
+    width: 100%;
     padding: 0 2rem;
+
+    @media (min-width: 768px) {
+      width: 80%;
+    }
   }
 
   .side-quote {
-    width: 20%;
+    width: 100%;
     padding: 2.5rem 1rem 2.5rem 0;
+
+    @media (min-width: 768px) {
+      width: 20%;
+    }
 
     p {
       ${H3Gold};

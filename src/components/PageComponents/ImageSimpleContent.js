@@ -56,10 +56,12 @@ const ImageSimpleContentSection = styled.section`
 
   .image {
     width: calc(100%);
+    margin-bottom: 5rem;
 
     @media (min-width: 768px) {
       width: calc(50% - 4rem);
       margin-right: ${props => (props.reverseimg ? "4rem" : "0rem")};
+      margin-bottom: 0;
       margin-left: ${props => (props.reverseimg ? "0rem" : "4rem")};
     }
   }
