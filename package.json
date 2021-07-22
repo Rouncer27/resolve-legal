@@ -25,6 +25,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-lottie": "^1.2.3",
+    "react-photo-gallery": "^8.0.0",
     "react-slick": "^0.28.1",
     "react-spinners": "^0.11.0",
     "slick-carousel": "^1.8.1",

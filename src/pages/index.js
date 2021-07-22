@@ -417,6 +417,19 @@ export const homeQuery = graphql`
             fieldGroupName
             displayForm
           }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_PhotoGallery {
+            fieldGroupName
+            gallery {
+              altText
+              localFile {
+                publicURL
+                childImageSharp {
+                  gatsbyImageData(width: 1250)
+                }
+              }
+            }
+          }
         }
       }
     }
