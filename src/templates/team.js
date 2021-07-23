@@ -1,18 +1,33 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout"
 import Seo from "../components/SEO"
-import { colors, H1Gold, H2Gold, standardWrapper } from "../styles/helpers"
+import {
+  colors,
+  H1Gold,
+  H2Gold,
+  standardWrapper,
+  Nav1Gold,
+  medWrapper,
+} from "../styles/helpers"
 
 import Wysiwyg from "../components/PageComponents/Wysiwyg"
 
 const Team = props => {
   const { member, allTeams } = props.data
-  const prevPost = props.pageContext.prev
-  const nextPost = props.pageContext.next
+  const prevTeam = props.pageContext.prev
+  const nextTeam = props.pageContext.next
+
+  const prevTeamData = allTeams.edges.find(post => {
+    return post.node.slug === prevTeam
+  })
+  const nextTeamData = allTeams.edges.find(post => {
+    return post.node.slug === nextTeam
+  })
+
   const imageDisplay = getImage(
     member.acfTeamMembers.image.localFile.childImageSharp.gatsbyImageData
   )
@@ -45,6 +60,25 @@ const Team = props => {
               </div>
             </div>
           </article>
+          <TeamNav className="team-nav">
+            <div className="wrapper">
+              <nav>
+                {nextTeamData && (
+                  <Link to={`/our-team/${nextTeamData.node.slug}`}>
+                    <span>&lt;</span>
+                    Previous Team Member
+                  </Link>
+                )}
+                <Link to="/our-team">Our Team</Link>
+                {prevTeamData && (
+                  <Link to={`/our-team/${prevTeamData.node.slug}`}>
+                    Next Team Member
+                    <span>&gt;</span>
+                  </Link>
+                )}
+              </nav>
+            </div>
+          </TeamNav>
         </section>
       </TeamMember>
     </Layout>
@@ -111,6 +145,27 @@ const TeamMember = styled.main`
     h1,
     h2 {
       ${H2Gold};
+    }
+  }
+`
+
+const TeamNav = styled.div`
+  width: 100%;
+  padding-bottom: 5rem;
+
+  .wrapper {
+    ${medWrapper};
+    max-width: 95rem !important;
+    border-top: 0.25rem solid ${colors.colorSecondary};
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      ${Nav1Gold};
     }
   }
 `
