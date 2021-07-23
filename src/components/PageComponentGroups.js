@@ -76,7 +76,13 @@ const PageComponentGroups = props => {
                 return <TitleFour key={index} data={component} />
 
               case "Page_Acfmaintemplatefields_PageComponents_TitleSimpleContent":
-                return <TitleSimpleContent key={index} data={component} />
+                return (
+                  <TitleSimpleContent
+                    key={index}
+                    pageStyles={props.pageStyles}
+                    data={component}
+                  />
+                )
 
               case "Page_Acfmaintemplatefields_PageComponents_HeroPage":
                 return <HeroPage key={index} data={component} />

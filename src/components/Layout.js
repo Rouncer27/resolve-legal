@@ -71,6 +71,15 @@ const MainStyled = styled.main`
     @media (min-width: 768px) {
       display: block;
     }
+
+    @media (min-width: 1025px) {
+    }
+
+    @media (min-width: 1200px) {
+    }
+
+    @media (min-width: 1300px) {
+    }
   }
 `
 

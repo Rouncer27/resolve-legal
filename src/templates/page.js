@@ -10,7 +10,7 @@ const Page = props => {
   return (
     <Layout pagestyles={pageStyles}>
       <Seo title={`Page Template`} />
-      <PageComponentGroups components={components} />
+      <PageComponentGroups pageStyles={pageStyles} components={components} />
     </Layout>
   )
 }

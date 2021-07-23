@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import { medWrapper, H1Brown, B1Brown, Btn1GoldRev } from "../../styles/helpers"
@@ -6,10 +6,15 @@ import ElementTag from "../../utils/ElementTag"
 
 import BgGraphicOne from "../Graphics/BgGraphicOne"
 
-const TitleSimpleContent = ({ data }) => {
+const TitleSimpleContent = ({ data, pageStyles }) => {
+  console.log("HERE HERE --->", pageStyles.acfPageStyles.sideStripe)
   const mainTitleDisplay = ElementTag(data.titleTag, data.title)
+
   return (
-    <TitleSimpleContentSection id={data.sectionId}>
+    <TitleSimpleContentSection
+      id={data.sectionId}
+      sidebaractive={pageStyles.acfPageStyles.sideStripe}
+    >
       <div className="wrapper">
         <div className="title">{mainTitleDisplay}</div>
         <div
@@ -39,6 +44,22 @@ const TitleSimpleContentSection = styled.section`
 
   .wrapper {
     ${medWrapper};
+
+    @media (min-width: 768px) {
+      padding-right: ${props => (props.sidebaractive ? "15rem" : "2rem")};
+    }
+
+    @media (min-width: 1025px) {
+      padding-right: ${props => (props.sidebaractive ? "15rem" : "2rem")};
+    }
+
+    @media (min-width: 1200px) {
+      padding-right: ${props => (props.sidebaractive ? "15rem" : "2rem")};
+    }
+
+    @media (min-width: 1400px) {
+      padding-right: ${props => (props.sidebaractive ? "10rem" : "2rem")};
+    }
   }
 
   .title {
