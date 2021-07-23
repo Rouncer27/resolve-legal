@@ -111,6 +111,8 @@ export const pageTempQuery = graphql`
                   }
                 }
               }
+              linkRequired
+              linkSlug
               title
               content
             }

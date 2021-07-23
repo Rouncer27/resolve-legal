@@ -30,7 +30,7 @@ const ImageSimpleContent = ({ data }) => {
           <div dangerouslySetInnerHTML={{ __html: data.content }} />
           {data.buttonRequired && (
             <div className="button">
-              <Link to={data.buttonSlug}>{data.buttonText}</Link>
+              <Link to={`/${data.buttonSlug}`}>{data.buttonText}</Link>
             </div>
           )}
         </div>

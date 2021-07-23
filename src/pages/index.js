@@ -111,6 +111,8 @@ export const homeQuery = graphql`
                   }
                 }
               }
+              linkRequired
+              linkSlug
               title
               content
             }

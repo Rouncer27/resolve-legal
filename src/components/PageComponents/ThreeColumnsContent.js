@@ -9,32 +9,55 @@ import {
   medWrapper,
   fontSizer,
 } from "../../styles/helpers"
+import { Link } from "gatsby"
 
 const ThreeColumnsContent = ({ data }) => {
   return (
     <ThreeColumnsContentSection>
       <div className="wrapper">
         {data.columns.map((col, index) => {
+          console.log(col)
           const imageDisplay = getImage(
             col.image.localFile.childImageSharp.gatsbyImageData
           )
           const imageAlt = col.image.altText
           return (
             <Column key={index}>
-              <div className="col-image">
-                <GatsbyImage
-                  image={imageDisplay}
-                  alt={imageAlt}
-                  layout="fixed"
-                />
-              </div>
-              <div className="col-title">
-                <h2>{col.title}</h2>
-              </div>
-              <div
-                className="col-content"
-                dangerouslySetInnerHTML={{ __html: col.content }}
-              />
+              {col.linkRequired ? (
+                <Link to={`/${col.linkSlug}`}>
+                  <div className="col-image">
+                    <GatsbyImage
+                      image={imageDisplay}
+                      alt={imageAlt}
+                      layout="fixed"
+                    />
+                  </div>
+                  <div className="col-title">
+                    <h2>{col.title}</h2>
+                  </div>
+                  <div
+                    className="col-content"
+                    dangerouslySetInnerHTML={{ __html: col.content }}
+                  />
+                </Link>
+              ) : (
+                <>
+                  <div className="col-image">
+                    <GatsbyImage
+                      image={imageDisplay}
+                      alt={imageAlt}
+                      layout="fixed"
+                    />
+                  </div>
+                  <div className="col-title">
+                    <h2>{col.title}</h2>
+                  </div>
+                  <div
+                    className="col-content"
+                    dangerouslySetInnerHTML={{ __html: col.content }}
+                  />
+                </>
+              )}
             </Column>
           )
         })}
