@@ -13,6 +13,7 @@ import {
   B1Brown,
   fontSizer,
   Btn1GoldRev,
+  medWrapper,
   H3Gold,
 } from "../styles/helpers"
 
@@ -23,8 +24,12 @@ const Post = props => {
   const { post, allPosts } = props.data
   const prevPost = props.pageContext.prev
   const nextPost = props.pageContext.next
-
-  console.log(post)
+  const prevPostData = allPosts.edges.find(post => {
+    return post.node.slug === prevPost
+  })
+  const nextPostData = allPosts.edges.find(post => {
+    return post.node.slug === nextPost
+  })
 
   const imageDisplay = getImage(
     post.acfPosts.featuredImage.localFile.childImageSharp.gatsbyImageData
@@ -62,7 +67,24 @@ const Post = props => {
           </div>
         </ArticleContent>
         <PostNav>
-          <Link to="/resources">Back To All Articles</Link>
+          <div className="wrapper">
+            <nav>
+              {nextPostData && (
+                <Link to={`/resources/${nextPostData.node.slug}`}>
+                  <span>&lt; </span>
+                  Next Article
+                </Link>
+              )}
+
+              <Link to="/resources">Home</Link>
+              {prevPostData && (
+                <Link to={`/resources/${prevPostData.node.slug}`}>
+                  Previous Article
+                  <span> &gt;</span>
+                </Link>
+              )}
+            </nav>
+          </div>
         </PostNav>
         <div className="graphic">
           <BgGraphicOne />
@@ -175,10 +197,23 @@ const ArticleContent = styled.div`
 `
 
 const PostNav = styled.div`
-  ${standardWrapper};
+  width: 100%;
+  padding-bottom: 5rem;
 
-  a {
-    ${Btn1GoldRev};
+  .wrapper {
+    ${medWrapper};
+    max-width: 95rem !important;
+    border-top: 0.25rem solid ${colors.colorSecondary};
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      ${Btn1GoldRev};
+    }
   }
 `
 

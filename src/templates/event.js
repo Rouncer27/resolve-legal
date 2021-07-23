@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
 import Seo from "../components/SEO"
 import BgGraphicOne from "../components/Graphics/BgGraphicOne"
@@ -12,12 +12,20 @@ import {
   B1Brown,
   Btn1GoldRev,
   standardWrapper,
+  Nav1Gold,
+  medWrapper,
 } from "../styles/helpers"
 
 const event = props => {
   const { event, allEvents } = props.data
-  const prevPost = props.pageContext.prev
-  const nextPost = props.pageContext.next
+  const prevEvent = props.pageContext.prev
+  const nextEvent = props.pageContext.next
+  const prevEventData = allEvents.edges.find(post => {
+    return post.node.slug === prevEvent
+  })
+  const nextEventData = allEvents.edges.find(post => {
+    return post.node.slug === nextEvent
+  })
 
   const months = [
     "Jan",
@@ -74,6 +82,25 @@ const event = props => {
             </div>
           </div>
         </div>
+        <EventNav className="team-nav">
+          <div className="wrapper">
+            <nav>
+              {nextEventData && (
+                <Link to={`/events/${nextEventData.node.slug}`}>
+                  <span>&lt;</span>
+                  Previous Event
+                </Link>
+              )}
+              <Link to="/events">View All Events</Link>
+              {prevEventData && (
+                <Link to={`/events/${prevEventData.node.slug}`}>
+                  Next Event
+                  <span>&gt;</span>
+                </Link>
+              )}
+            </nav>
+          </div>
+        </EventNav>
         <div className="graphic">
           <BgGraphicOne />
         </div>
@@ -177,6 +204,27 @@ const EventMain = styled.main`
       a {
         ${Btn1GoldRev};
       }
+    }
+  }
+`
+
+const EventNav = styled.div`
+  width: 100%;
+  padding-bottom: 5rem;
+
+  .wrapper {
+    ${medWrapper};
+    max-width: 95rem !important;
+    border-top: 0.25rem solid ${colors.colorSecondary};
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      ${Nav1Gold};
     }
   }
 `

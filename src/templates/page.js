@@ -432,6 +432,11 @@ export const pageTempQuery = graphql`
               }
             }
           }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_Podcast {
+            fieldGroupName
+            title
+          }
         }
       }
     }
