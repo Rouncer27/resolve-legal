@@ -45,7 +45,9 @@ const TitleFourStyled = styled.section`
   .wrapper {
     ${BigWrapper};
     align-items: center;
-    padding: 0;
+    @media (min-width: 768px) {
+      padding: 0;
+    }
   }
 
   .image {
@@ -91,10 +93,14 @@ const TitleFourStyled = styled.section`
     a {
       ${Btn1GoldRev};
       min-width: 25rem;
-      margin: 0 2rem;
+      margin-bottom: 2rem;
 
-      &:first-of-type {
-        margin-left: 0;
+      @media (min-width: 768px) {
+        margin: 0 2rem;
+
+        &:first-of-type {
+          margin-left: 0;
+        }
       }
     }
   }

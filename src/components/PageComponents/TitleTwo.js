@@ -34,7 +34,10 @@ const TitleTwoStyled = styled.section`
   .wrapper {
     ${BigWrapper};
     align-items: center;
-    padding: 0;
+
+    @media (min-width: 768px) {
+      padding: 0;
+    }
   }
 
   .image {

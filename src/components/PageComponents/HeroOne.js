@@ -11,7 +11,7 @@ const HeroOne = ({ data }) => {
   const mainTitleDisplay = ElementTag(data.titleTag, data.title)
 
   return (
-    <HeroSectionOneStyled>
+    <HeroSectionOneStyled logodisplay={data.logoDisplay}>
       <div className="heroContent">
         <div className="heroContent__inner">
           {data.logoDisplay && (
@@ -73,7 +73,7 @@ const HeroSectionOneStyled = styled.div`
     z-index: 100;
 
     @media (min-width: 768px) {
-      top: 0;
+      top: 20rem;
       right: 0;
       bottom: 0;
       left: 0;
@@ -81,17 +81,30 @@ const HeroSectionOneStyled = styled.div`
     }
 
     @media (min-width: 1025px) {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
     }
 
     &__inner {
       width: 100%;
       max-width: 68rem;
-      padding: 2rem;
+      padding: 5rem 2rem 2rem 2rem;
       text-align: center;
 
+      @media (min-width: 768px) {
+        padding: 2rem;
+      }
+
       .main-logo {
+        display: none;
         max-width: 45rem;
         margin: 2rem auto;
+
+        @media (min-width: 1025px) {
+          display: block;
+        }
       }
 
       .hero-titles {
@@ -134,11 +147,15 @@ const HeroSectionOneStyled = styled.div`
 
   .heroImage {
     position: absolute;
-    top: 4.5rem;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
+
+    @media (min-width: 768px) {
+      top: 4.5rem;
+    }
 
     div {
       width: 100%;
