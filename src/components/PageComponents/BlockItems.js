@@ -38,7 +38,7 @@ const BlockItems = ({ data }) => {
 }
 
 const BlockItemsSection = styled.section`
-  padding: 5rem 0;
+  padding: 5rem 0 0 0;
 
   .wrapper {
     ${standardWrapper};
@@ -49,13 +49,14 @@ const Block = styled.div`
   width: calc(100%);
 
   @media (min-width: 768px) {
-    width: calc(100% / 2);
+    width: calc((100% / 2) - 4rem);
+    margin: 1rem 2rem;
   }
 
   @media (min-width: 1025px) {
     width: calc((100% / 4) - 6rem);
 
-    margin: 2rem 3rem;
+    margin: 1rem 3rem;
   }
 
   .image {
