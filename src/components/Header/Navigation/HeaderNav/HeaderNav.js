@@ -4,13 +4,13 @@ import { colors, medWrapper, standardWrapper } from "../../../../styles/helpers"
 
 import HeaderMenuBottom from "./HeaderMenuBottom"
 
-const HeaderNav = () => {
+const HeaderNav = ({ location }) => {
   return (
     <HeaderNavStyled>
       <div className="wrapperNav">
         <div className="navBot">
           <div className="navBot__wrapper">
-            <HeaderMenuBottom />
+            <HeaderMenuBottom location={location} />
           </div>
         </div>
       </div>

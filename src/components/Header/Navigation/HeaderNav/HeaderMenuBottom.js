@@ -29,7 +29,7 @@ const getData = graphql`
   }
 `
 
-const HeaderMenu = () => {
+const HeaderMenu = ({ location }) => {
   const data = useStaticQuery(getData)
   const { headerMenuBot } = data
   const allNavItems = headerMenuBot?.menuItems?.nodes
@@ -48,7 +48,9 @@ const HeaderMenu = () => {
       <HeaderNavStyled role="navigation" aria-label="primary">
         <ul className="mainNavWrapper">
           {navItemsWithSubs.map(item => {
-            return <HeaderNavItem key={item.id} item={item} />
+            return (
+              <HeaderNavItem key={item.id} item={item} location={location} />
+            )
           })}
         </ul>
       </HeaderNavStyled>

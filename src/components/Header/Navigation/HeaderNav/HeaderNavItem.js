@@ -13,7 +13,16 @@ import HeaderSubMenu from "./HeaderSubMenu"
 
 const isBrowser = () => typeof window !== "undefined"
 
-const HeaderNavItem = ({ item, top }) => {
+const HeaderNavItem = props => {
+  const { item, top } = props
+  console.log("HERE ARE THE PROPS: ", props)
+
+  const parentUrl =
+    "/" +
+    props?.location?.pathname?.split("/").filter(item => item !== "")[0] +
+    "/"
+  const isSubActive = parentUrl === item?.url
+
   const slug = item.url
     .split("/")
     .filter(item => item !== "")
@@ -32,6 +41,7 @@ const HeaderNavItem = ({ item, top }) => {
   return (
     <HeaderNavItemStyled top={top}>
       <Link
+        className={`${isSubActive ? "sub-active" : ""}`}
         to={`/${slug}`}
         onMouseEnter={handleIsActiveOn}
         onMouseLeave={handleIsActiveOff}
@@ -80,7 +90,8 @@ const HeaderNavItemStyled = styled.li`
         props.top ? colors.colorTertiary : colors.colorTertiary};
     }
 
-    &[aria-current="page"] {
+    &[aria-current="page"],
+    &.sub-active {
       color: ${props =>
         props.top ? colors.colorTertiary : colors.colorTertiary};
       border-color: ${colors.colorTertiary};

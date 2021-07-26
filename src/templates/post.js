@@ -37,7 +37,7 @@ const Post = props => {
   const imageAlt = post.acfPosts.featuredImage.altText
 
   return (
-    <Layout>
+    <Layout location={props.location}>
       <Seo title={post.title} />
       <PostMain>
         <TitleComponent>

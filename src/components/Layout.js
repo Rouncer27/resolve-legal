@@ -10,7 +10,7 @@ import Footer from "./Footer"
 import BgGraphicOne from "./Graphics/BgGraphicOne"
 import { colors } from "../styles/helpers"
 
-const Layout = ({ children, pagestyles }) => {
+const Layout = ({ children, pagestyles, location }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -28,6 +28,7 @@ const Layout = ({ children, pagestyles }) => {
         <Header
           heroactive={pagestyles?.acfPageStyles?.heroImageTop}
           siteTitle={data.site.siteMetadata?.title || `Title`}
+          location={location}
         />
         <MainStyled sidestripe={pagestyles?.acfPageStyles?.sideStripe}>
           {children}

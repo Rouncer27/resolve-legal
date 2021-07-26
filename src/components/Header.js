@@ -8,7 +8,7 @@ import HeaderNav from "./Header/Navigation/HeaderNav/HeaderNav"
 import HeaderMenuTop from "./Header/Navigation/HeaderNav/HeaderMenuTop"
 import MobileNav from "./Header/Navigation/MobileNav/MobileNav"
 
-const Header = ({ siteTitle, heroactive }) => {
+const Header = ({ siteTitle, heroactive, location }) => {
   return (
     <HeaderStyled heroactive={heroactive} role="banner" className="site-header">
       <div className="wrapper">
@@ -23,7 +23,7 @@ const Header = ({ siteTitle, heroactive }) => {
           </h1>
         </div>
         <div className="mainNav">
-          <HeaderNav />
+          <HeaderNav location={location} />
         </div>
       </div>
       <MobileNav />
