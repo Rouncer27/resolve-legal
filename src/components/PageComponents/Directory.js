@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import {
@@ -15,6 +15,8 @@ import {
 import BgGraphicOne from "../Graphics/BgGraphicOne"
 
 const Directory = ({ data }) => {
+  const [activeCat, setActiveCat] = useState("calgary")
+
   return (
     <DirectorySection>
       <div className="wrapper">
@@ -32,17 +34,27 @@ const Directory = ({ data }) => {
                 .filter(char => char !== " ")
                 .join("")
               return (
-                <NavItem data-directoryid={id} key={index}>
-                  <div className="title">
-                    <h2>{item.title}</h2>
-                  </div>
-                  <div className="image">
-                    <GatsbyImage
-                      image={imageDisplay}
-                      alt={imageAlt}
-                      layout="fixed"
-                    />
-                  </div>
+                <NavItem
+                  isactive={activeCat === id}
+                  data-directoryid={id}
+                  key={index}
+                >
+                  <button
+                    onClick={() => {
+                      setActiveCat(id)
+                    }}
+                  >
+                    <div className="title">
+                      <h2>{item.title}</h2>
+                    </div>
+                    <div className="image">
+                      <GatsbyImage
+                        image={imageDisplay}
+                        alt={imageAlt}
+                        layout="fixed"
+                      />
+                    </div>
+                  </button>
                 </NavItem>
               )
             })}
@@ -57,6 +69,9 @@ const Directory = ({ data }) => {
               .split("")
               .filter(char => char !== " ")
               .join("")
+
+            if (activeCat !== id) return null
+
             return (
               <div className="dir-section" data-directoryid={id} key={index}>
                 <div className="section-title">
@@ -194,6 +209,12 @@ const NavItem = styled.li`
     width: calc((100% / 3) - 2rem);
     margin: 1rem;
   }
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
 
   .title {
     position: absolute;
@@ -201,14 +222,28 @@ const NavItem = styled.li`
     bottom: -2.5rem;
     left: 2.5rem;
     padding: 2rem;
-    background-color: ${colors.colorPrimary};
+    transition: all 0.3s ease;
+    background-color: ${props =>
+      props.isactive ? colors.colorTertiary : colors.colorPrimary};
     text-align: center;
     z-index: 10;
 
     h2 {
       ${H2Gold};
       margin: 0;
+      transition: all 0.3s ease;
+      color: ${props => (props.isactive ? colors.white : colors.colorTertiary)};
       font-family: ${fonts.fontSecondary};
+    }
+  }
+
+  button:hover {
+    .title {
+      background-color: ${colors.colorTertiary};
+
+      h2 {
+        color: ${colors.white};
+      }
     }
   }
 `
