@@ -1,8 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import {
+  B1Brown,
   B1White,
+  Btn1LightBlue,
   colors,
   fonts,
   H2Brown,
@@ -34,6 +36,42 @@ const getData = graphql`
 const Podcast = ({ data }) => {
   const podcastsData = useStaticQuery(getData)
   const podcasts = podcastsData.podcasts.edges
+  const DISPLAY_NUMBER = 10
+  let podcastCount = 0
+
+  const [podcastList, setPodcastList] = useState({
+    max: 0,
+    current: 0,
+    display: [],
+    loading: false,
+    isMore: false,
+  })
+  useEffect(() => {
+    setPodcastList(prevState => {
+      return {
+        ...prevState,
+        max: podcasts?.length,
+        current: DISPLAY_NUMBER,
+        display: podcasts.slice(0, DISPLAY_NUMBER),
+        isMore: podcasts?.length > DISPLAY_NUMBER,
+      }
+    })
+  }, [podcasts])
+
+  const loadMoreEpisodes = () => {
+    setPodcastList(prevState => {
+      return {
+        ...prevState,
+        current: prevState.current + DISPLAY_NUMBER,
+        display: podcasts.slice(0, prevState.current + DISPLAY_NUMBER),
+        isMore: prevState.max > prevState.current + DISPLAY_NUMBER,
+        loading: false,
+      }
+    })
+  }
+
+  console.log("podcastList", podcastList)
+
   const [activePodcast, setActivePodcast] = useState(podcasts[0])
 
   if (!data.displayPodcastEpisodes) return null
@@ -48,7 +86,7 @@ const Podcast = ({ data }) => {
       <div className="wrapper">
         <div className="episode-list">
           <h2>Episode Listings</h2>
-          {podcasts.map(podcast => {
+          {podcastList.display.map(podcast => {
             return (
               <div
                 className={`podcast-title${
@@ -65,6 +103,12 @@ const Podcast = ({ data }) => {
               </div>
             )
           })}
+
+          <div className="load-more-btn">
+            <button disabled={!podcastList.isMore} onClick={loadMoreEpisodes}>
+              More Episodes
+            </button>
+          </div>
         </div>
         <div className="episode-current">
           <div className="episode-current__soundcloud">
@@ -122,11 +166,34 @@ const PodcastSection = styled.section`
       p {
         ${B1White};
         margin: 0;
+        cursor: pointer;
       }
     }
 
     .active-podcast {
       background-color: ${colors.colorTertiary};
+    }
+
+    .load-more-btn {
+      width: 100%;
+
+      button {
+        ${B1Brown};
+        width: 100%;
+        padding: 2rem 2rem 2rem 5rem;
+        border: none;
+        background-color: ${colors.colorTertiary};
+        color: ${colors.colorPrimary};
+        text-align: left;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &:disabled {
+          background-color: ${colors.colorShad};
+          opacity: 0.75;
+          cursor: not-allowed;
+        }
+      }
     }
   }
 
