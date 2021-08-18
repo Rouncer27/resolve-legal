@@ -5,9 +5,11 @@ import {
   B1White,
   colors,
   fonts,
+  H2Brown,
   H2Gold,
   medWrapper,
 } from "../../styles/helpers"
+import Wysiwyg from "./Wysiwyg"
 
 const getData = graphql`
   {
@@ -19,6 +21,8 @@ const getData = graphql`
           title
           acfPodcastEpisode {
             episodeEmbed
+            showNotes
+            showNotesRequired
           }
         }
       }
@@ -62,13 +66,24 @@ const Podcast = ({ data }) => {
           })}
         </div>
         <div className="episode-current">
-          <div>
+          <div className="episode-current__soundcloud">
             <div
               dangerouslySetInnerHTML={{
                 __html: activePodcast.node.acfPodcastEpisode.episodeEmbed,
               }}
             />
           </div>
+          {activePodcast.node.acfPodcastEpisode.showNotesRequired && (
+            <div className="episode-current__shownotes">
+              <h2>{activePodcast.node.title}</h2>
+              <Wysiwyg
+                fontsize="small"
+                data={{
+                  wysiwyg: activePodcast.node.acfPodcastEpisode.showNotes,
+                }}
+              />
+            </div>
+          )}
         </div>
       </div>
     </PodcastSection>
@@ -115,6 +130,21 @@ const PodcastSection = styled.section`
 
     @media (min-width: 768px) {
       width: calc(70%);
+    }
+
+    &__soundcloud {
+      margin-bottom: 5rem;
+      padding-bottom: 5rem;
+      border-bottom: solid 0.25rem ${colors.colorTertiary};
+    }
+
+    &__shownotes {
+      h2 {
+        ${H2Brown};
+        margin: 0;
+        padding: 1rem;
+        font-family: ${fonts.fontSecondary};
+      }
     }
   }
 `
