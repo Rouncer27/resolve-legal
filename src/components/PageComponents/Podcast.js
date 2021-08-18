@@ -32,7 +32,7 @@ const getData = graphql`
 
 const Podcast = ({ data }) => {
   const podcastsData = useStaticQuery(getData)
-  const podcasts = podcastsData.podcasts.edges
+  const podcasts = podcastsData.podcasts.edges.reverse()
   const [activePodcast, setActivePodcast] = useState(podcasts[0])
 
   if (!data.displayPodcastEpisodes) return null
