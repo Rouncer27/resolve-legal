@@ -14,7 +14,7 @@ import BgGraphicOne from "../Graphics/BgGraphicOne"
 
 const getData = graphql`
   {
-    podcasts: allWpPodcastEpisode {
+    podcasts: allWpPodcastEpisode(sort: { order: ASC, fields: date }) {
       edges {
         node {
           id
@@ -33,7 +33,7 @@ const getData = graphql`
 
 const Podcast = ({ data }) => {
   const podcastsData = useStaticQuery(getData)
-  const podcasts = podcastsData.podcasts.edges.reverse()
+  const podcasts = podcastsData.podcasts.edges
   const [activePodcast, setActivePodcast] = useState(podcasts[0])
 
   if (!data.displayPodcastEpisodes) return null
