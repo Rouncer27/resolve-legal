@@ -29,7 +29,6 @@ const getData = graphql`
 const Podcast = ({ data }) => {
   const podcastsData = useStaticQuery(getData)
   const podcasts = podcastsData.podcasts.edges
-
   const [activePodcast, setActivePodcast] = useState(podcasts[0])
 
   if (!data.displayPodcastEpisodes) return null
@@ -46,7 +45,15 @@ const Podcast = ({ data }) => {
           <h2>Episode Listings</h2>
           {podcasts.map(podcast => {
             return (
-              <div data-id={podcast.node.id} key={podcast.node.id}>
+              <div
+                className={`podcast-title${
+                  podcast.node.id === activePodcast.node.id
+                    ? " active-podcast"
+                    : ""
+                }`}
+                data-id={podcast.node.id}
+                key={podcast.node.id}
+              >
                 <p onClick={() => handleEpisodePick(podcast.node.id)}>
                   {podcast.node.title}
                 </p>
@@ -75,7 +82,7 @@ const PodcastSection = styled.section`
 
   .episode-list {
     width: calc(100%);
-    padding: 2rem 2rem 2rem 5rem;
+    padding: 2rem 0;
     background-color: ${colors.colorPrimary};
 
     @media (min-width: 768px) {
@@ -84,12 +91,21 @@ const PodcastSection = styled.section`
 
     h2 {
       ${H2Gold};
-      padding-bottom: 2.5rem;
+      padding: 0 2rem 2rem 5rem;
       font-family: ${fonts.fontSecondary};
     }
 
-    p {
-      ${B1White};
+    .podcast-title {
+      padding: 2rem 2rem 2rem 5rem;
+
+      p {
+        ${B1White};
+        margin: 0;
+      }
+    }
+
+    .active-podcast {
+      background-color: ${colors.colorTertiary};
     }
   }
 
