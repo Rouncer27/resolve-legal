@@ -435,7 +435,7 @@ export const homeQuery = graphql`
 
           ... on WpPage_Acfmaintemplatefields_PageComponents_Podcast {
             fieldGroupName
-            title
+            displayPodcastEpisodes
           }
         }
       }
