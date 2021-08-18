@@ -10,6 +10,7 @@ import {
   medWrapper,
 } from "../../styles/helpers"
 import Wysiwyg from "./Wysiwyg"
+import BgGraphicOne from "../Graphics/BgGraphicOne"
 
 const getData = graphql`
   {
@@ -86,11 +87,16 @@ const Podcast = ({ data }) => {
           )}
         </div>
       </div>
+      <div className="graphic">
+        <BgGraphicOne />
+      </div>
     </PodcastSection>
   )
 }
 
 const PodcastSection = styled.section`
+  position: relative;
+
   .wrapper {
     ${medWrapper}
   }
@@ -146,6 +152,15 @@ const PodcastSection = styled.section`
         font-family: ${fonts.fontSecondary};
       }
     }
+  }
+
+  .graphic {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 75%;
+    z-index: -1;
   }
 `
 

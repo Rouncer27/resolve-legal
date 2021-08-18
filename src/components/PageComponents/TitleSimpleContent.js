@@ -7,7 +7,6 @@ import ElementTag from "../../utils/ElementTag"
 import BgGraphicOne from "../Graphics/BgGraphicOne"
 
 const TitleSimpleContent = ({ data, pageStyles }) => {
-  console.log("HERE HERE --->", pageStyles.acfPageStyles.sideStripe)
   const mainTitleDisplay = ElementTag(data.titleTag, data.title)
 
   return (
