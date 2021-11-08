@@ -6,6 +6,7 @@ import ContentBlockOne from "./PageComponents/ContentBlockOne"
 import ThreeColumnsContent from "./PageComponents/ThreeColumnsContent"
 import SocialMediaIcons from "./PageComponents/SocialMediaIcons"
 import Testimonials from "./PageComponents/Testimonials"
+import DidYouKnow from "./PageComponents/DidYouKnow"
 import LinkBoxes from "./PageComponents/LinkBoxes"
 import CalloutAction from "./PageComponents/CalloutAction"
 import TitleNoImage from "./PageComponents/TitleNoImage"
@@ -56,6 +57,9 @@ const PageComponentGroups = props => {
 
               case "Page_Acfmaintemplatefields_PageComponents_Testimonials":
                 return <Testimonials key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_DidYouKnow":
+                return <DidYouKnow key={index} data={component} />
 
               case "Page_Acfmaintemplatefields_PageComponents_LinkBoxes":
                 return <LinkBoxes key={index} data={component} />

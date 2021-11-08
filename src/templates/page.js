@@ -138,6 +138,21 @@ export const pageTempQuery = graphql`
             }
           }
 
+          ... on WpPage_Acfmaintemplatefields_PageComponents_DidYouKnow {
+            fieldGroupName
+            displayDidYouKnow
+            didYouKnowImage {
+              altText
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1500) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
+            }
+          }
+
           ... on WpPage_Acfmaintemplatefields_PageComponents_LinkBoxes {
             fieldGroupName
             boxes {
