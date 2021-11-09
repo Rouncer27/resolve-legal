@@ -130,10 +130,20 @@ const TitleComponent = styled.section`
 
   .title {
     width: calc(100%);
+    padding: 2rem;
 
     @media (min-width: 768px) {
       width: calc(65% - 4rem);
       margin-left: 4rem;
+      padding-right: 2rem;
+    }
+
+    @media (min-width: 1025px) {
+      padding-right: 2rem;
+    }
+
+    @media (min-width: 1200px) {
+      padding-right: 10%;
     }
 
     &__content {

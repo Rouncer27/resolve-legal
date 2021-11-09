@@ -14,7 +14,7 @@ const WysiwygSection = ({ data }) => {
             <h2>{data.title}</h2>
           </div>
         )}
-        <div>
+        <div className="content">
           <Wysiwyg fontsize="small" data={{ wysiwyg: data.wysiwyg }} />
         </div>
       </div>
@@ -46,6 +46,10 @@ const WysiwygSectionStyled = styled.section`
     h2 {
       ${H1Brown};
     }
+  }
+
+  .content {
+    width: 100%;
   }
 
   .sidebar {
