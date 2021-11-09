@@ -186,7 +186,7 @@ const WysiwygStyled = styled.div`
 
       a {
         transition: all 0.3s;
-        color: ${colors.colorPrimary};
+        color: ${colors.colorTertiary};
         ${props =>
           props.theme === "light" ? "color: rgba(245,245,245, 1)" : null};
         font-weight: bold;

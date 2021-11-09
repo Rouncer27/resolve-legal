@@ -14,7 +14,7 @@ import {
 
 const getData = graphql`
   {
-    posts: allWpPost {
+    posts: allWpPost(sort: { order: DESC, fields: date }) {
       edges {
         node {
           slug
