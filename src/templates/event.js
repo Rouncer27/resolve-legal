@@ -42,10 +42,17 @@ const event = props => {
     "Dec",
   ]
 
-  const dateArray = event.acfEvents.dateTime.split("/").join(" ").split(" ")
-  const dbDay = parseInt(dateArray[0])
-  const dbMonth = parseInt(dateArray[1])
-  const monthName = months[dbMonth]
+  let dbDay
+  let monthName
+
+  if (!event.acfEvents.ongoingEvent) {
+    let dateArray = []
+    dateArray = event.acfEvents.dateTime.split("/").join(" ").split(" ")
+
+    dbDay = parseInt(dateArray[0])
+    const dbMonth = parseInt(dateArray[1])
+    monthName = months[dbMonth]
+  }
 
   return (
     <Layout>
@@ -55,8 +62,14 @@ const event = props => {
           <div className="event-article">
             <div className="date">
               <p>
-                <span>{monthName}.</span>
-                <span className="big-number">{dbDay}</span>
+                {event.acfEvents.ongoingEvent ? (
+                  <>{event.acfEvents.ongoingEventDatesAndTimes}</>
+                ) : (
+                  <>
+                    <span>{monthName}.</span>
+                    <span className="big-number">{dbDay}</span>
+                  </>
+                )}
               </p>
             </div>
             <div className="content">
@@ -194,9 +207,15 @@ const EventMain = styled.main`
     }
 
     &__excerpt {
-      p {
+      p,
+      a,
+      li {
         ${B1Brown};
         ${fontSizer(1.4, 1.6, 76.8, 150, 1.8)};
+      }
+
+      li {
+        margin-bottom: 1rem;
       }
     }
 
@@ -236,6 +255,8 @@ export const query = graphql`
       id
       title
       acfEvents {
+        ongoingEvent
+        ongoingEventDatesAndTimes
         dateTime
         excerpt
         fieldGroupName
