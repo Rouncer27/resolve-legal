@@ -81,10 +81,12 @@ const event = props => {
                   <span>Location: </span>
                   {event.acfEvents.location}
                 </p>
-                <p>
-                  <span>Time: </span>
-                  {event.acfEvents.dateTime}
-                </p>
+                {event.acfEvents.ongoingEvent && (
+                  <p>
+                    <span>Time: </span>
+                    {event.acfEvents.dateTime}
+                  </p>
+                )}
               </div>
               <div
                 className="content__excerpt"
