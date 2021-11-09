@@ -442,7 +442,7 @@ export const pageTempQuery = graphql`
               localFile {
                 publicURL
                 childImageSharp {
-                  gatsbyImageData(width: 1250)
+                  gatsbyImageData(width: 1750)
                 }
               }
             }
