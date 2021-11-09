@@ -19,6 +19,8 @@ const getData = graphql`
           id
           title
           acfEvents {
+            ongoingEvent
+            ongoingEventDatesAndTimes
             dateTime
             excerpt
             fieldGroupName
@@ -83,15 +85,22 @@ const FeaturedEvents = ({ data }) => {
             "Dec",
           ]
 
-          const dateArray = event.node.acfEvents.dateTime
-            .split("/")
-            .join(" ")
-            .split(" ")
+          let dbDay
+          let monthName
+          let dbYear
 
-          const dbDay = parseInt(dateArray[0])
-          const dbMonth = parseInt(dateArray[1])
-          const dbYear = parseInt(dateArray[2])
-          const monthName = months[dbMonth]
+          if (!event.node.acfEvents.ongoingEvent) {
+            let dateArray = []
+            dateArray = event.node.acfEvents.dateTime
+              .split("/")
+              .join(" ")
+              .split(" ")
+
+            dbDay = parseInt(dateArray[0])
+            const dbMonth = parseInt(dateArray[1])
+            monthName = months[dbMonth]
+            dbYear = parseInt(dateArray[2])
+          }
 
           return (
             <EventBlock key={event.node.id} to={`/events/${event.node.slug}`}>
@@ -104,7 +113,11 @@ const FeaturedEvents = ({ data }) => {
               </div>
               <div className="title">
                 <h2>{event.node.title}</h2>
-                <p>{`${monthName}. ${dbDay}, ${dbYear}`}</p>
+                {event.node.acfEvents.ongoingEvent ? (
+                  <p>{event.node.acfEvents.ongoingEventDatesAndTimes}</p>
+                ) : (
+                  <p>{`${monthName}. ${dbDay}, ${dbYear}`}</p>
+                )}
               </div>
             </EventBlock>
           )

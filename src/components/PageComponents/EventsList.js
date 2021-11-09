@@ -23,6 +23,8 @@ const getData = graphql`
           id
           title
           acfEvents {
+            ongoingEvent
+            ongoingEventDatesAndTimes
             dateTime
             excerpt
             fieldGroupName
@@ -73,22 +75,33 @@ const EventsList = ({ data }) => {
             "Nov",
             "Dec",
           ]
+          let dbDay
+          let monthName
 
-          const dateArray = event.node.acfEvents.dateTime
-            .split("/")
-            .join(" ")
-            .split(" ")
+          if (!event.node.acfEvents.ongoingEvent) {
+            let dateArray = []
+            dateArray = event.node.acfEvents.dateTime
+              .split("/")
+              .join(" ")
+              .split(" ")
 
-          const dbDay = parseInt(dateArray[0])
-          const dbMonth = parseInt(dateArray[1])
-          const monthName = months[dbMonth]
+            dbDay = parseInt(dateArray[0])
+            const dbMonth = parseInt(dateArray[1])
+            monthName = months[dbMonth]
+          }
 
           return (
             <ListItem key={event.node.id}>
               <div className="date">
                 <p>
-                  <span>{monthName}.</span>
-                  <span className="big-number">{dbDay}</span>
+                  {event.node.acfEvents.ongoingEvent ? (
+                    <>{event.node.acfEvents.ongoingEventDatesAndTimes}</>
+                  ) : (
+                    <>
+                      <span>{monthName}.</span>
+                      <span className="big-number">{dbDay}</span>
+                    </>
+                  )}
                 </p>
               </div>
               <div className="content">
@@ -100,10 +113,12 @@ const EventsList = ({ data }) => {
                     <span>Location: </span>
                     {event.node.acfEvents.location}
                   </p>
-                  <p>
-                    <span>Time: </span>
-                    {event.node.acfEvents.dateTime}
-                  </p>
+                  {event.node.acfEvents.ongoingEvent ? null : (
+                    <p>
+                      <span>Time: </span>
+                      {event.node.acfEvents.dateTime}
+                    </p>
+                  )}
                 </div>
                 <div
                   className="content__excerpt"
