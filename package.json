@@ -20,6 +20,7 @@
     "gatsby-source-filesystem": "^3.14.0",
     "gatsby-source-wordpress": "^5.14.0",
     "gatsby-transformer-sharp": "^3.14.0",
+    "gsap": "^3.8.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-datepicker": "^4.1.1",

@@ -10,7 +10,7 @@ import TestimonialsIcon from "../Icons/TestimonialsIcon"
 const settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
-  fade: false,
+  fade: true,
   draggable: true,
   infinite: true,
   speed: 500,

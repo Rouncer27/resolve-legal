@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import BGImg from "gatsby-background-image"
 import {
@@ -10,12 +10,87 @@ import {
 } from "../../styles/helpers"
 import ElementTag from "../../utils/ElementTag"
 import { Link } from "gatsby"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const ImageByContent = ({ data }) => {
   const mainTitleDisplay = ElementTag(data.titleTag, data.title)
   const image = data.image.localFile.childImageSharp.fluid
+
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: `#image-by-content`,
+          markers: false,
+          start: "top 50%",
+          toggleActions: "play none none none",
+        },
+      })
+      .add("start")
+      .fromTo(
+        `.image-side`,
+        {
+          autoAlpha: 0,
+          x: -300,
+        },
+        {
+          autoAlpha: 1,
+          ease: "power2.out",
+          x: 0,
+          duration: 0.75,
+        }
+      )
+
+      .fromTo(
+        `.content-side__title`,
+        {
+          autoAlpha: 0,
+          y: 300,
+        },
+        {
+          autoAlpha: 1,
+          ease: "back.out(1.7)",
+          y: 0,
+          duration: 1,
+        },
+        "start+=0.3"
+      )
+
+      .fromTo(
+        `.content-side__para`,
+        {
+          autoAlpha: 0,
+          y: 300,
+        },
+        {
+          autoAlpha: 1,
+          ease: "back.out(1.7)",
+          y: 0,
+          duration: 1,
+        },
+        "start+=0.6"
+      )
+
+      .fromTo(
+        `.link-button`,
+        {
+          autoAlpha: 0,
+          y: 300,
+        },
+        {
+          autoAlpha: 1,
+          ease: "back.out(1.7)",
+          y: 0,
+          duration: 1,
+        },
+        "start+=0.9"
+      )
+  }, [])
+
   return (
-    <ImageByContentStyled bgcolor={data.backgroundColor}>
+    <ImageByContentStyled id="image-by-content" bgcolor={data.backgroundColor}>
       <div className="image-side">
         <div className="image-side__wrap">
           <BGImg tag="div" fluid={image} />
@@ -24,8 +99,11 @@ const ImageByContent = ({ data }) => {
       <div className="wrapper">
         <div className="content-side">
           <div>
-            <div>{mainTitleDisplay}</div>
-            <div dangerouslySetInnerHTML={{ __html: data.content }} />
+            <div className="content-side__title">{mainTitleDisplay}</div>
+            <div
+              className="content-side__para"
+              dangerouslySetInnerHTML={{ __html: data.content }}
+            />
             {data.buttonRequired && (
               <div className="link-button">
                 <Link to={`/${data.buttonSlug}`}>{data.buttonText}</Link>
@@ -43,6 +121,7 @@ const ImageByContentStyled = styled.section`
   min-height: 42.5rem;
   background-color: ${props =>
     props.bgcolor === "dkBlue" ? colors.colorPrimary : colors.colorSecondary};
+  overflow: hidden;
 
   .wrapper {
     ${standardWrapper};
