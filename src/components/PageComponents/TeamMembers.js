@@ -8,6 +8,7 @@ import {
   H4IntroGold,
   fonts,
   medWrapper,
+  H2White,
 } from "../../styles/helpers"
 import BgGraphicOne from "../Graphics/BgGraphicOne"
 
@@ -63,6 +64,9 @@ const TeamMembers = ({ data }) => {
                 <h2>{member.node.acfTeamMembers.name}</h2>
                 <h3>{member.node.acfTeamMembers.title}</h3>
               </div>
+              <div className="overlay">
+                <p>Read Bio</p>
+              </div>
             </Member>
           )
         })}
@@ -105,6 +109,33 @@ const Member = styled(Link)`
   @media (min-width: 1025px) {
     width: calc((100% / 3) - 3rem);
     margin: 1.5rem;
+  }
+
+  .overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: all 0.3s ease;
+
+    p {
+      ${H2Gold}
+      text-align: center;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.4);
+
+    .overlay {
+      opacity: 1;
+    }
   }
 
   .title {
