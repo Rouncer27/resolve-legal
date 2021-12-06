@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
@@ -10,10 +10,40 @@ import {
   fontSizer,
 } from "../../styles/helpers"
 import { Link } from "gatsby"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const ThreeColumnsContent = ({ data }) => {
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#three-columns-content",
+          markers: false,
+          start: "top 50%",
+          toggleActions: "play none none none",
+        },
+      })
+      .fromTo(
+        ".columns",
+        {
+          autoAlpha: 0,
+          y: 150,
+        },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 1,
+          stagger: {
+            each: 0.5,
+          },
+        }
+      )
+  }, [])
+
   return (
-    <ThreeColumnsContentSection>
+    <ThreeColumnsContentSection id="three-columns-content">
       <div className="wrapper">
         {data.columns.map((col, index) => {
           console.log(col)
@@ -22,7 +52,7 @@ const ThreeColumnsContent = ({ data }) => {
           )
           const imageAlt = col.image.altText
           return (
-            <Column key={index}>
+            <Column className="columns" key={index}>
               {col.linkRequired ? (
                 <Link to={`/${col.linkSlug}`}>
                   <div className="col-image">
@@ -68,6 +98,7 @@ const ThreeColumnsContent = ({ data }) => {
 
 const ThreeColumnsContentSection = styled.section`
   padding-top: 3rem;
+  overflow: hidden;
 
   .wrapper {
     ${medWrapper};
