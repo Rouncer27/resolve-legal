@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql, Link, useStaticQuery } from "gatsby"
@@ -8,9 +8,12 @@ import {
   H4IntroGold,
   fonts,
   medWrapper,
-  H2White,
 } from "../../styles/helpers"
 import BgGraphicOne from "../Graphics/BgGraphicOne"
+
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const getData = graphql`
   {
@@ -40,10 +43,38 @@ const getData = graphql`
 const TeamMembers = ({ data }) => {
   const teamData = useStaticQuery(getData)
   const members = teamData.team.edges
+
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#team-members-trigger",
+          markers: false,
+          start: "top 50%",
+          toggleActions: "play none none none",
+        },
+      })
+      .fromTo(
+        ".team-member",
+        {
+          autoAlpha: 0,
+          y: 150,
+        },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 1,
+          stagger: {
+            each: 0.1,
+          },
+        }
+      )
+  }, [])
+
   if (!data.display) return null
 
   return (
-    <TeamMembersSection>
+    <TeamMembersSection id="team-members-trigger">
       <div className="wrapper">
         {members.map(member => {
           const imageDisplay = getImage(
@@ -52,21 +83,23 @@ const TeamMembers = ({ data }) => {
           )
           const imageAlt = member.node.acfTeamMembers.image.altText
           return (
-            <Member to={`/our-team/${member.node.slug}`} key={member.node.id}>
-              <div className="image">
-                <GatsbyImage
-                  image={imageDisplay}
-                  alt={imageAlt}
-                  layout="fixed"
-                />
-              </div>
-              <div className="title">
-                <h2>{member.node.acfTeamMembers.name}</h2>
-                <h3>{member.node.acfTeamMembers.title}</h3>
-              </div>
-              <div className="overlay">
-                <p>Read Bio</p>
-              </div>
+            <Member className="team-member" key={member.node.id}>
+              <Link to={`/our-team/${member.node.slug}`}>
+                <div className="image">
+                  <GatsbyImage
+                    image={imageDisplay}
+                    alt={imageAlt}
+                    layout="fixed"
+                  />
+                </div>
+                <div className="title">
+                  <h2>{member.node.acfTeamMembers.name}</h2>
+                  <h3>{member.node.acfTeamMembers.title}</h3>
+                </div>
+                <div className="overlay">
+                  <p>Read Bio</p>
+                </div>
+              </Link>
             </Member>
           )
         })}
@@ -96,7 +129,8 @@ const TeamMembersSection = styled.section`
   }
 `
 
-const Member = styled(Link)`
+const Member = styled.div`
+  display: block;
   position: relative;
   width: calc(100%);
   margin: 2.5rem 0;
