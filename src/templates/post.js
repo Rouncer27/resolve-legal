@@ -69,17 +69,18 @@ const Post = props => {
         <PostNav>
           <div className="wrapper">
             <nav>
-              {nextPostData && (
-                <Link to={`/resources/${nextPostData.node.slug}`}>
+              {prevPostData && (
+                <Link to={`/resources/${prevPostData.node.slug}`}>
                   <span>&lt; </span>
-                  Next Article
+                  Previous Article
                 </Link>
               )}
 
               <Link to="/resources">Home</Link>
-              {prevPostData && (
-                <Link to={`/resources/${prevPostData.node.slug}`}>
-                  Previous Article
+
+              {nextPostData && (
+                <Link to={`/resources/${nextPostData.node.slug}`}>
+                  Next Article
                   <span> &gt;</span>
                 </Link>
               )}

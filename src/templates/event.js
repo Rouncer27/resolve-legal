@@ -51,7 +51,7 @@ const event = props => {
 
     dbDay = parseInt(dateArray[0])
     const dbMonth = parseInt(dateArray[1])
-    monthName = months[dbMonth]
+    monthName = months[dbMonth - 1]
   }
 
   return (
