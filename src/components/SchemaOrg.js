@@ -25,7 +25,10 @@ export default React.memo(
         logo: logo,
         telephone: "(403) 229-2365",
         email: "info@resolvelegalgroup.com",
-        sameAs: [],
+        sameAs: [
+          "https://www.facebook.com/ResolveLegalGroup/",
+          "https://twitter.com/resolvelglgroup",
+        ],
         url: "https://www.resolvelegalgroup.com/",
         image: image,
         priceRange: "$$",
