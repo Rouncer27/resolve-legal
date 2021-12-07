@@ -9,7 +9,12 @@ const Page = props => {
   const { components, seo, pageStyles } = props.data
   return (
     <Layout pagestyles={pageStyles}>
-      <Seo title={`Page Template`} />
+      <Seo
+        title={seo.pageSeoData.swbThemeMetaTitle}
+        description={seo.pageSeoData.swbThemeDescription}
+        metaImg={seo.pageSeoData.swbThemeImage.localFile.relativePath}
+        location={props.location.pathname}
+      />
       <PageComponentGroups pageStyles={pageStyles} components={components} />
     </Layout>
   )

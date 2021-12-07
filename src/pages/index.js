@@ -9,7 +9,12 @@ const IndexPage = props => {
   const { components, seo, pageStyles } = props.data
   return (
     <Layout pagestyles={pageStyles}>
-      <Seo title="Home" />
+      <Seo
+        title={seo.pageSeoData.swbThemeMetaTitle}
+        description={seo.pageSeoData.swbThemeDescription}
+        metaImg={seo.pageSeoData.swbThemeImage.localFile.relativePath}
+        location={props.location.pathname}
+      />
       <PageComponentGroups components={components} />
     </Layout>
   )

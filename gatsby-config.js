@@ -3,9 +3,12 @@ dotenv.config({ path: ".env" })
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Rsolve Legal Group`,
+    description: `Rsolve Legal Group.`,
+    author: `@switchback4ever`,
+    metaImg: `src/images/social-media-default.png`,
+    siteLogo: `src/images/resolve-logo.png`,
+    siteUrl: `https://www.resolvelegalgroup.com/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

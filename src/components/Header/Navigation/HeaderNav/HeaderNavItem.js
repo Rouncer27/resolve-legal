@@ -15,8 +15,6 @@ const isBrowser = () => typeof window !== "undefined"
 
 const HeaderNavItem = props => {
   const { item, top } = props
-  console.log("HERE ARE THE PROPS: ", props)
-
   const parentUrl =
     "/" +
     props?.location?.pathname?.split("/").filter(item => item !== "")[0] +
