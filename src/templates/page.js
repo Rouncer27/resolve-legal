@@ -457,6 +457,11 @@ export const pageTempQuery = graphql`
             fieldGroupName
             displayPodcastEpisodes
           }
+
+          ... on WpPage_Acfmaintemplatefields_PageComponents_WysiwygGrid {
+            fieldGroupName
+            content
+          }
         }
       }
     }

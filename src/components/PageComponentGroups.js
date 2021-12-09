@@ -31,6 +31,7 @@ import LunchLearnForm from "./PageComponents/LunchLearnForm"
 import ContactForm from "./PageComponents/ContactForm"
 import PhotoGallery from "./PageComponents/PhotoGallery"
 import Podcast from "./PageComponents/Podcast"
+import WysiwygGrid from "./PageComponents/WysiwygGrid"
 
 const PageComponentGroups = props => {
   const { components } = props
@@ -138,6 +139,9 @@ const PageComponentGroups = props => {
 
               case "Page_Acfmaintemplatefields_PageComponents_Podcast":
                 return <Podcast key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_WysiwygGrid":
+                return <WysiwygGrid key={index} data={component} />
 
               default:
                 return (
