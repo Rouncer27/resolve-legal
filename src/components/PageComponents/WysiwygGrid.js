@@ -10,7 +10,6 @@ import {
 } from "../../styles/helpers"
 
 const WysiwygGrid = ({ data }) => {
-  console.log(data)
   return (
     <StyledSection>
       <div className="wrapper">

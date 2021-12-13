@@ -23,7 +23,6 @@ const Directory = ({ data }) => {
         <div className="navigation">
           <ul>
             {data.sections.map((item, index) => {
-              console.log(item)
               const imageDisplay = getImage(
                 item.image.localFile.childImageSharp.gatsbyImageData
               )

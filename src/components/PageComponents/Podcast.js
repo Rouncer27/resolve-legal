@@ -70,8 +70,6 @@ const Podcast = ({ data }) => {
     })
   }
 
-  console.log("podcastList", podcastList)
-
   const [activePodcast, setActivePodcast] = useState(podcasts[0])
 
   if (!data.displayPodcastEpisodes) return null

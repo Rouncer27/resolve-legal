@@ -45,7 +45,6 @@ const ArticlesList = ({ data }) => {
     <ArticlesListSection>
       <div className="wrapper">
         {posts.map(post => {
-          console.log(post)
           const imageDisplay = getImage(
             post.node.acfPosts.featuredImage.localFile.childImageSharp
               .gatsbyImageData

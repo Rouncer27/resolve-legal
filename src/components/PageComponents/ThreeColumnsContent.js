@@ -46,7 +46,6 @@ const ThreeColumnsContent = ({ data }) => {
     <ThreeColumnsContentSection id="three-columns-content">
       <div className="wrapper">
         {data.columns.map((col, index) => {
-          console.log(col)
           const imageDisplay = getImage(
             col.image.localFile.childImageSharp.gatsbyImageData
           )
