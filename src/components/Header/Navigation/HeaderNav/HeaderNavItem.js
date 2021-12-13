@@ -5,13 +5,10 @@ import {
   colors,
   Nav1Brown,
   Nav1White,
-  Nav1Slate,
-  Btn1Green,
+  Btn1Gold,
 } from "../../../../styles/helpers"
 
 import HeaderSubMenu from "./HeaderSubMenu"
-
-const isBrowser = () => typeof window !== "undefined"
 
 const HeaderNavItem = props => {
   const { item, top } = props
@@ -109,7 +106,7 @@ const HeaderNavItemStyled = styled.li`
   }
 
   button {
-    ${Btn1Green};
+    ${Btn1Gold};
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     background-color: transparent;
