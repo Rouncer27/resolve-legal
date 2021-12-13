@@ -83,27 +83,61 @@ const Directory = ({ data }) => {
                       dirItem.image.localFile.childImageSharp.gatsbyImageData
                     )
                     const imageAlt = dirItem.image.altText
-                    return (
-                      <DirItem key={index}>
-                        <div className="logo-image">
-                          <GatsbyImage
-                            image={imageDisplay}
-                            alt={imageAlt}
-                            layout="fixed"
-                          />
-                        </div>
-                        <div className="item-content">
-                          <div>
-                            <h3>{dirItem.title}</h3>
+                    if (
+                      dirItem.url !== "" &&
+                      dirItem.url !== null &&
+                      dirItem.url !== undefined
+                    ) {
+                      return (
+                        <DirItem key={index}>
+                          <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href={`${dirItem.url}`}
+                          >
+                            <div className="logo-image">
+                              <GatsbyImage
+                                image={imageDisplay}
+                                alt={imageAlt}
+                                layout="fixed"
+                              />
+                            </div>
+                            <div className="item-content">
+                              <div>
+                                <h3>{dirItem.title}</h3>
+                              </div>
+                              <div
+                                dangerouslySetInnerHTML={{
+                                  __html: dirItem.content,
+                                }}
+                              />
+                            </div>
+                          </a>
+                        </DirItem>
+                      )
+                    } else {
+                      return (
+                        <DirItem key={index}>
+                          <div className="logo-image">
+                            <GatsbyImage
+                              image={imageDisplay}
+                              alt={imageAlt}
+                              layout="fixed"
+                            />
                           </div>
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: dirItem.content,
-                            }}
-                          />
-                        </div>
-                      </DirItem>
-                    )
+                          <div className="item-content">
+                            <div>
+                              <h3>{dirItem.title}</h3>
+                            </div>
+                            <div
+                              dangerouslySetInnerHTML={{
+                                __html: dirItem.content,
+                              }}
+                            />
+                          </div>
+                        </DirItem>
+                      )
+                    }
                   })}
                 </div>
               </div>
@@ -259,6 +293,15 @@ const DirItem = styled.div`
   @media (min-width: 768px) {
     width: calc((100% / 2) - 5rem);
     margin: 2.5rem;
+  }
+
+  a {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: calc(100%);
   }
 
   .logo-image {
