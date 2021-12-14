@@ -49,7 +49,7 @@ const HeroOne = ({ data }) => {
 
 const HeroSectionOneStyled = styled.div`
   position: relative;
-  height: 50rem;
+  height: 60rem;
   overflow: hidden;
 
   @media (min-width: 768px) {
@@ -69,7 +69,7 @@ const HeroSectionOneStyled = styled.div`
     bottom: 7rem;
     left: 0;
     width: 100%;
-    padding: 2.5rem;
+    padding: 1rem;
     z-index: 100;
 
     @media (min-width: 768px) {
@@ -78,6 +78,7 @@ const HeroSectionOneStyled = styled.div`
       bottom: 0;
       left: 0;
       margin: auto;
+      padding: 2.5rem;
     }
 
     @media (min-width: 1025px) {

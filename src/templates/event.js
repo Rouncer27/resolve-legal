@@ -242,10 +242,16 @@ const EventNav = styled.div`
   nav {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 
     a {
       ${Nav1Gold};
+
+      @media (max-width: 768px) {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
     }
   }
 `

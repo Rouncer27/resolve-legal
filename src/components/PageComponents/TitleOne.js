@@ -43,6 +43,7 @@ const TitleOneStyled = styled.section`
 
   .title {
     width: calc(100%);
+    padding-left: 2rem;
 
     @media (min-width: 768px) {
       width: calc(65% - 4rem);
