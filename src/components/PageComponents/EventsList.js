@@ -16,7 +16,7 @@ import BgGraphicOne from "../Graphics/BgGraphicOne"
 
 const getData = graphql`
   {
-    events: allWpResolveEvents {
+    events: allWpResolveEvents(sort: { order: DESC, fields: date }) {
       edges {
         node {
           slug
@@ -87,7 +87,7 @@ const EventsList = ({ data }) => {
 
             dbDay = parseInt(dateArray[0])
             const dbMonth = parseInt(dateArray[1])
-            monthName = months[dbMonth]
+            monthName = months[dbMonth - 1]
           }
 
           return (
