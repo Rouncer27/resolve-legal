@@ -14,6 +14,8 @@ const TitleFour = ({ data }) => {
   )
   const imageAlt = data.image.altText
 
+  console.log(data.buttonPhoneNumber)
+
   return (
     <TitleFourStyled>
       <div className="wrapper">
@@ -27,7 +29,11 @@ const TitleFour = ({ data }) => {
           </div>
           {data.buttonRequired && (
             <div className="buttons">
-              <Link to={`/${data.buttonSlug}`}>{data.buttonText}</Link>
+              {data.buttonPhoneNumber ? (
+                <a href={`tel:+1-${data.buttonSlug}`}>{data.buttonText}</a>
+              ) : (
+                <Link to={`/${data.buttonSlug}`}>{data.buttonText}</Link>
+              )}
               {data.secondButton && (
                 <Link to={`/${data.secondButtonSlug}`}>
                   {data.secondButtonText}

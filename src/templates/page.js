@@ -240,6 +240,7 @@ export const pageTempQuery = graphql`
             titleTag
             content
             buttonRequired
+            buttonPhoneNumber
             buttonText
             buttonSlug
             secondButton

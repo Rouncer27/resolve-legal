@@ -240,6 +240,7 @@ export const homeQuery = graphql`
             titleTag
             content
             buttonRequired
+            buttonPhoneNumber
             buttonText
             buttonSlug
             secondButton
