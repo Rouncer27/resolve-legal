@@ -1,4 +1,9 @@
-# Redirects
+# Redirect domain aliases to primary domain
+http://www.resolvelegalgroup.com/* https://resolvelegalgroup.com/:splat 301!
+https://www.resolvelegalgroup.com/* https://resolvelegalgroup.com/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+https://resolve-legal-swb.netlify.app/* https://resolvelegalgroup.com/:splat 301!
 
 /what-clients-say-about-us /
 /awards-and-membership /about-us
