@@ -203,7 +203,8 @@ const ListItem = styled.div`
     width: 100%;
 
     @media (min-width: 768px) {
-      width: 75%;
+      width: calc(75% - 4rem);
+      margin-left: 4rem;
     }
 
     &__title {
