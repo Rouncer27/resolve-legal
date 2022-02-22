@@ -20,7 +20,10 @@ const ImageSimpleContent = ({ data }) => {
   )
   const imageAlt = data.image.altText
   return (
-    <ImageSimpleContentSection reverseimg={data.reverseImage}>
+    <ImageSimpleContentSection
+      id={data.sectionId ? data.sectionId : ""}
+      reverseimg={data.reverseImage}
+    >
       <div className="wrapper">
         <div className="image">
           <GatsbyImage image={imageDisplay} alt={imageAlt} layout="fixed" />

@@ -296,6 +296,7 @@ export const pageTempQuery = graphql`
             buttonRequired
             buttonText
             buttonSlug
+            sectionId
             image {
               altText
               localFile {
