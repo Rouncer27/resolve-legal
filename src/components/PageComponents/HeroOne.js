@@ -49,14 +49,35 @@ const HeroOne = ({ data }) => {
 
 const HeroSectionOneStyled = styled.div`
   position: relative;
-  height: 60rem;
+  height: auto;
+  padding-top: 40rem;
   overflow: hidden;
 
+  @media (min-width: 550px) {
+    height: auto;
+  }
+
+  @media (min-width: 650px) {
+    height: auto;
+  }
+
   @media (min-width: 768px) {
-    height: 55rem;
+    height: 45rem;
+  }
+
+  @media (min-width: 800px) {
+    height: 50rem;
   }
 
   @media (min-width: 1025px) {
+    height: 60rem;
+  }
+
+  @media (min-width: 1100px) {
+    height: 65rem;
+  }
+
+  @media (min-width: 1200px) {
     height: 75rem;
   }
 
@@ -64,21 +85,24 @@ const HeroSectionOneStyled = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 7rem;
-    bottom: 7rem;
+    position: relative;
+    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
     padding: 1rem;
+    background: #122a41;
     z-index: 100;
 
     @media (min-width: 768px) {
+      position: absolute;
       top: 20rem;
       right: 0;
       bottom: 0;
       left: 0;
       margin: auto;
       padding: 2.5rem;
+      background: transparent;
     }
 
     @media (min-width: 1025px) {
@@ -148,14 +172,21 @@ const HeroSectionOneStyled = styled.div`
 
   .heroImage {
     position: absolute;
-    top: 0;
+    top: 15rem;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 25rem;
     z-index: 1;
+
+    @media (min-width: 700px) {
+      height: 30rem;
+    }
 
     @media (min-width: 768px) {
       top: 4.5rem;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     div {
