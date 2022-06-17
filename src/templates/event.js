@@ -155,7 +155,8 @@ const EventMain = styled.main`
     width: 100%;
 
     @media (min-width: 768px) {
-      width: 25%;
+      width: calc(25% - 2rem);
+      margin-right: 2rem;
       text-align: center;
     }
 
