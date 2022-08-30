@@ -29,6 +29,7 @@ import EventsList from "./PageComponents/EventsList"
 import ArticlesList from "./PageComponents/ArticlesList"
 import LunchLearnForm from "./PageComponents/LunchLearnForm"
 import ContactForm from "./PageComponents/ContactForm"
+import ClientSupportForm from "./PageComponents/ClientSupportForm"
 import PhotoGallery from "./PageComponents/PhotoGallery"
 import Podcast from "./PageComponents/Podcast"
 import WysiwygGrid from "./PageComponents/WysiwygGrid"
@@ -133,6 +134,9 @@ const PageComponentGroups = props => {
 
               case "Page_Acfmaintemplatefields_PageComponents_ContactForm":
                 return <ContactForm key={index} data={component} />
+
+              case "Page_Acfmaintemplatefields_PageComponents_SupportForm":
+                return <ClientSupportForm key={index} data={component} />
 
               case "Page_Acfmaintemplatefields_PageComponents_PhotoGallery":
                 return <PhotoGallery key={index} data={component} />

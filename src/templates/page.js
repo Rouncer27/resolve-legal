@@ -442,6 +442,11 @@ export const pageTempQuery = graphql`
             displayForm
           }
 
+          ... on WpPage_Acfmaintemplatefields_PageComponents_SupportForm {
+            fieldGroupName
+            displayForm
+          }
+
           ... on WpPage_Acfmaintemplatefields_PageComponents_PhotoGallery {
             fieldGroupName
             gallery {
