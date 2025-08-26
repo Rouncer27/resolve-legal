@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import BGImg from "gatsby-background-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql, useStaticQuery } from "gatsby"
 
 import TestimonialsSlider from "./TestimonialsSlider"
@@ -24,14 +24,21 @@ const Testimonials = ({ data }) => {
   const testData = useStaticQuery(getData)
   const testimonials = testData.testimonials.edges
   if (!data.displayTestimonials) return null
-  const heroImage = data.testimonialImage.localFile.childImageSharp.fluid
+
+  const heroImage = getImage(
+    data.testimonialImage.localFile.childImageSharp.gatsbyImageData
+  )
   return (
     <TestimonialsSection>
       <div>
         <TestimonialsSlider testimonials={testimonials} />
       </div>
       <div className="bgImage">
-        <BGImg tag="div" fluid={heroImage} />
+        <GatsbyImage
+          image={heroImage}
+          alt="Hero background"
+          style={{ height: "100%" }}
+        />
       </div>
     </TestimonialsSection>
   )
