@@ -22,6 +22,8 @@ const settings = {
 }
 
 const TestimonialsSlider = ({ testimonials }) => {
+  return null
+
   return (
     <TestimonialsSliderStyled>
       <div className="slider-title">
