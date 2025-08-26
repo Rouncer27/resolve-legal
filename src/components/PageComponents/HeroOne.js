@@ -7,7 +7,6 @@ import ElementTag from "../../utils/ElementTag"
 import MainLogoWhite from "../Logos/MainLogoWhite"
 
 const HeroOne = ({ data }) => {
-  console.log(data)
   const heroImage = getImage(
     data.image.localFile.childImageSharp.gatsbyImageData
   )
