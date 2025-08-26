@@ -120,8 +120,8 @@ const PageComponentGroups = props => {
               case "Page_Acfmaintemplatefields_PageComponents_TitleNoImage":
                 return <TitleNoImage key={index} data={component} />
 
-              // case "Page_Acfmaintemplatefields_PageComponents_FeaturedEvents":
-              //   return <FeaturedEvents key={index} data={component} />
+              case "Page_Acfmaintemplatefields_PageComponents_FeaturedEvents":
+                return <FeaturedEvents key={index} data={component} />
 
               case "Page_Acfmaintemplatefields_PageComponents_EventsList":
                 return <EventsList key={index} data={component} />
