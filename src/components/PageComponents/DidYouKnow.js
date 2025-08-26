@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import BGImg from "gatsby-background-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql, useStaticQuery } from "gatsby"
 
 import DidYouKnowSlider from "./DidYouKnowSlider"
@@ -24,14 +24,21 @@ const DidYouKnow = ({ data }) => {
   const dykData = useStaticQuery(getData)
   const didYouKnows = dykData.didYouKnows.edges
   if (!data.displayDidYouKnow) return null
-  const heroImage = data.didYouKnowImage.localFile.childImageSharp.fluid
+  const heroImage = getImage(
+    data.didYouKnowImage.localFile.childImageSharp.gatsbyImageData
+  )
+
   return (
     <DidYouKnowSection>
       <div>
         <DidYouKnowSlider didYouKnows={didYouKnows} />
       </div>
       <div className="bgImage">
-        <BGImg tag="div" fluid={heroImage} />
+        <GatsbyImage
+          image={heroImage}
+          alt="Hero background"
+          style={{ height: "100%" }}
+        />
       </div>
     </DidYouKnowSection>
   )
