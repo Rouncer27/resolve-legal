@@ -20,7 +20,6 @@ const HeaderSubMenuItem = ({
   const handleIsActiveOff = () => {
     setSubActive(false)
   }
-
   const slug = item.url
     .split("/")
     .filter(item => item !== "")
@@ -39,11 +38,7 @@ const HeaderSubMenuItem = ({
       onMouseLeave={handleIsActiveOff}
       subactive={subActive}
     >
-      <Link
-        className="subMenuItem"
-        to={`${item.path}`}
-        onBlur={handleDropDownBlur}
-      >
+      <Link className="subMenuItem" to={`/${slug}`} onBlur={handleDropDownBlur}>
         {item.label}
         {item.childItems.nodes.length > 0 && (
           <span className="subIndicator">&#x25BC;</span>

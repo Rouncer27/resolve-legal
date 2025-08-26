@@ -17,10 +17,10 @@ const HeaderNavItem = props => {
     props?.location?.pathname?.split("/").filter(item => item !== "")[0] +
     "/"
   const isSubActive = parentUrl === item?.url
-  const slug = item.url
-    .split("/")
-    .filter(item => item !== "")
-    .join("/")
+  // const slug = item.url
+  //   .split("/")
+  //   .filter(item => item !== "")
+  //   .join("/")
   const [subActive, setSubActive] = useState(false)
   const handleIsActiveOn = () => {
     setSubActive(true)
@@ -30,7 +30,8 @@ const HeaderNavItem = props => {
     setSubActive(false)
   }
 
-  const needsRefresh = slug === "donate"
+  // const needsRefresh = slug === "donate"
+
   return (
     <HeaderNavItemStyled top={top}>
       <Link

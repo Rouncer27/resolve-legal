@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { colors, medWrapper, standardWrapper } from "../../../../styles/helpers"
+import { medWrapper } from "../../../../styles/helpers"
 
 import HeaderMenuBottom from "./HeaderMenuBottom"
 

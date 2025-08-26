@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
-import { BigWrapper, medWrapper, standardWrapper } from "../../styles/helpers"
+import { standardWrapper } from "../../styles/helpers"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const PhotoGallery = ({ data }) => {

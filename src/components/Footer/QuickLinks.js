@@ -32,10 +32,10 @@ const QuickLinks = () => {
         <nav>
           <ul>
             {quickLinks.menuItems.nodes.map(item => {
-              const slug = item.url
-                .split("/")
-                .filter(item => item !== "")
-                .join("/")
+              // const slug = item.url
+              //   .split("/")
+              //   .filter(item => item !== "")
+              //   .join("/")
               return (
                 <li key={item.id}>
                   <Link to={`${item.path}`}>{item.label}</Link>

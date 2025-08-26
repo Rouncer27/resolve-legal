@@ -1,4 +1,4 @@
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import { medWrapper, H1Brown, B1Brown, Btn1GoldRev } from "../../styles/helpers"

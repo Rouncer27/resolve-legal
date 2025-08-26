@@ -37,6 +37,7 @@ const HeaderMenu = () => {
     item.subItems = itemWithSubs
     return item
   })
+
   const headerNavigation = navItems ? (
     navItemsWithSubs.length > 0 ? (
       <HeaderNavStyled role="navigation" aria-label="primary">

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import {
   B1Brown,
   B1White,
-  Btn1LightBlue,
   colors,
   fonts,
   H2Brown,
@@ -37,7 +36,7 @@ const Podcast = ({ data }) => {
   const podcastsData = useStaticQuery(getData)
   const podcasts = podcastsData.podcasts.edges
   const DISPLAY_NUMBER = 10
-  let podcastCount = 0
+  // let podcastCount = 0
 
   const [podcastList, setPodcastList] = useState({
     max: 0,
