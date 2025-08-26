@@ -81,14 +81,14 @@ const PageComponentGroups = props => {
               // case "Page_Acfmaintemplatefields_PageComponents_TitleFour":
               //   return <TitleFour key={index} data={component} />
 
-              case "Page_Acfmaintemplatefields_PageComponents_TitleSimpleContent":
-                return (
-                  <TitleSimpleContent
-                    key={index}
-                    pageStyles={props.pageStyles}
-                    data={component}
-                  />
-                )
+              // case "Page_Acfmaintemplatefields_PageComponents_TitleSimpleContent":
+              //   return (
+              //     <TitleSimpleContent
+              //       key={index}
+              //       pageStyles={props.pageStyles}
+              //       data={component}
+              //     />
+              //   )
 
               case "Page_Acfmaintemplatefields_PageComponents_HeroPage":
                 return <HeroPage key={index} data={component} />
