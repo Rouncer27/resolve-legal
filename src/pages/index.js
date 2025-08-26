@@ -84,6 +84,7 @@ export const homeQuery = graphql`
               altText
               localFile {
                 childImageSharp {
+                  gatsbyImageData(width: 2000)
                   fluid(maxWidth: 2000) {
                     ...GatsbyImageSharpFluid_withWebp
                   }

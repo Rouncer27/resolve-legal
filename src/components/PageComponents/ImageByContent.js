@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
-import BGImg from "gatsby-background-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
   B1White,
   Btn1GoldRev,
@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const ImageByContent = ({ data }) => {
   const mainTitleDisplay = ElementTag(data.titleTag, data.title)
-  const image = data.image.localFile.childImageSharp.fluid
+  const image = getImage(data.image.localFile.childImageSharp.gatsbyImageData)
 
   useEffect(() => {
     gsap
@@ -93,7 +93,11 @@ const ImageByContent = ({ data }) => {
     <ImageByContentStyled id="image-by-content" bgcolor={data.backgroundColor}>
       <div className="image-side">
         <div className="image-side__wrap">
-          <BGImg tag="div" fluid={image} />
+          <GatsbyImage
+            image={image}
+            alt="Hero background"
+            style={{ height: "100%" }}
+          />
         </div>
       </div>
       <div className="wrapper">
