@@ -18,7 +18,7 @@ const MobileNavItem = ({ item }) => {
   }
   return (
     <MobileNavItemStyled>
-      <Link to={`/${slug === "home" ? "" : slug}`}>{item.label}</Link>
+      <Link to={`${item.path === "home" ? "" : item.path}`}>{item.label}</Link>
       {item.subItems && item.subItems.length > 0 && (
         <div className="subContainer">
           <button

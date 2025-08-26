@@ -9,7 +9,7 @@ const MobileSubMenuItem = ({ item }) => {
     .join("/")
   return (
     <MobileSubMenuItemStyled>
-      <Link to={`/${slug}`}>{item.label}</Link>
+      <Link to={`${item.path}`}>{item.label}</Link>
     </MobileSubMenuItemStyled>
   )
 }

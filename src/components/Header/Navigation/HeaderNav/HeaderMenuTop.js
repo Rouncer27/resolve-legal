@@ -13,6 +13,7 @@ const getData = graphql`
         nodes {
           label
           url
+          path
           parentDatabaseId
           parentId
           id

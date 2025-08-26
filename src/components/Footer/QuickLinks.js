@@ -11,6 +11,7 @@ const getData = graphql`
         nodes {
           label
           url
+          path
           parentDatabaseId
           parentId
           id
@@ -37,7 +38,7 @@ const QuickLinks = () => {
                 .join("/")
               return (
                 <li key={item.id}>
-                  <Link to={`/${slug}`}>{item.label}</Link>
+                  <Link to={`${item.path}`}>{item.label}</Link>
                 </li>
               )
             })}

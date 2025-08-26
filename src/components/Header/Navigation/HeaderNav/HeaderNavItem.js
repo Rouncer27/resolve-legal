@@ -35,7 +35,7 @@ const HeaderNavItem = props => {
     <HeaderNavItemStyled top={top}>
       <Link
         className={`${isSubActive ? "sub-active" : ""}`}
-        to={`/${slug}`}
+        to={`${item.path}`}
         onMouseEnter={handleIsActiveOn}
         onMouseLeave={handleIsActiveOff}
         onFocus={handleIsActiveOn}

@@ -39,7 +39,11 @@ const HeaderSubMenuItem = ({
       onMouseLeave={handleIsActiveOff}
       subactive={subActive}
     >
-      <Link className="subMenuItem" to={`/${slug}`} onBlur={handleDropDownBlur}>
+      <Link
+        className="subMenuItem"
+        to={`${item.path}`}
+        onBlur={handleDropDownBlur}
+      >
         {item.label}
         {item.childItems.nodes.length > 0 && (
           <span className="subIndicator">&#x25BC;</span>
