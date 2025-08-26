@@ -250,7 +250,7 @@ const ClientSupportFormFeilds = () => {
                 id="opposingParty"
                 value={formData.opposingParty}
                 onChange={handleOnChange}
-                maxlength={50}
+                maxLength={50}
               />
             </label>
           </InputField>

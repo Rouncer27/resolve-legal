@@ -14,8 +14,6 @@ const TitleFour = ({ data }) => {
   )
   const imageAlt = data.image.altText
 
-  console.log(data.buttonPhoneNumber)
-
   return (
     <TitleFourStyled>
       <div className="wrapper">

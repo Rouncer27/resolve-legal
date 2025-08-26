@@ -16,16 +16,12 @@ const HeaderNavItem = props => {
     "/" +
     props?.location?.pathname?.split("/").filter(item => item !== "")[0] +
     "/"
-  console.log("parentUrl: ", parentUrl)
   const isSubActive = parentUrl === item?.url
-  console.log("isSubActive: ", isSubActive)
-  console.log("item.url: ", item.url)
   const slug = item.url
     .split("/")
     .filter(item => item !== "")
     .join("/")
   const [subActive, setSubActive] = useState(false)
-  console.log("slug: ", slug)
   const handleIsActiveOn = () => {
     setSubActive(true)
   }

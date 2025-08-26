@@ -1,25 +1,38 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { BigWrapper, medWrapper, standardWrapper } from "../../styles/helpers"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const PhotoGallery = ({ data }) => {
+  const [sizes, setSizes] = useState([])
+
+  useEffect(() => {
+    // Generate random sizes client-side only
+    const generated = data.gallery.map(() => ({
+      width: Math.floor(Math.random() * 4) + 1,
+      height: Math.floor(Math.random() * 4) + 1,
+    }))
+    setSizes(generated)
+  }, [data.gallery])
+
   return (
     <PhotoGallerySection>
       <div className="wrapper">
         <div className="galley-wrap">
-          {data.gallery.map(photo => {
+          {data.gallery.map((photo, idx) => {
             const width = parseInt(Math.floor(Math.random() * 4) + 1)
             const height = parseInt(Math.floor(Math.random() * 4) + 1)
             const imageDisplay = getImage(
               photo.localFile.childImageSharp.gatsbyImageData
             )
             const imageAlt = photo.altText
+            const size = sizes[idx] || { width: 1, height: 1 } // placeholder until useEffect runs
             return (
               <GalleryImage
+                key={idx}
                 className="item"
-                rndwidth={width}
-                rndheight={height}
+                rndwidth={size.width}
+                rndheight={size.height}
               >
                 <div className="image-wrapper">
                   <GatsbyImage

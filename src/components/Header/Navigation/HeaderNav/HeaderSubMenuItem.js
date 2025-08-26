@@ -21,16 +21,6 @@ const HeaderSubMenuItem = ({
     setSubActive(false)
   }
 
-  console.log(
-    "THE SLUG IS HERE",
-    item.url
-      .split("/")
-      .filter(item => item !== "")
-      .filter(item => item !== "http:")
-      .filter(item => item !== "https:")
-      .join("/")
-  )
-
   const slug = item.url
     .split("/")
     .filter(item => item !== "")
