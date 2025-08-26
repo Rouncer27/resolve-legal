@@ -102,8 +102,8 @@ const PageComponentGroups = props => {
               case "Page_Acfmaintemplatefields_PageComponents_WysiwygImages":
                 return <WysiwygImages key={index} data={component} />
 
-              // case "Page_Acfmaintemplatefields_PageComponents_Directory":
-              //   return <Directory key={index} data={component} />
+              case "Page_Acfmaintemplatefields_PageComponents_Directory":
+                return <Directory key={index} data={component} />
 
               // case "Page_Acfmaintemplatefields_PageComponents_ImageLinks":
               //   return <ImageLinks key={index} data={component} />
