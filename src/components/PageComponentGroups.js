@@ -90,11 +90,11 @@ const PageComponentGroups = props => {
                   />
                 )
 
-              case "Page_Acfmaintemplatefields_PageComponents_HeroPage":
-                return <HeroPage key={index} data={component} />
+              // case "Page_Acfmaintemplatefields_PageComponents_HeroPage":
+              //   return <HeroPage key={index} data={component} />
 
-              // case "Page_Acfmaintemplatefields_PageComponents_ImageSimpleContent":
-              //   return <ImageSimpleContent key={index} data={component} />
+              case "Page_Acfmaintemplatefields_PageComponents_ImageSimpleContent":
+                return <ImageSimpleContent key={index} data={component} />
 
               case "Page_Acfmaintemplatefields_PageComponents_Logos":
                 return <Logos key={index} data={component} />
