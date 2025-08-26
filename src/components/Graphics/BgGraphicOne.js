@@ -1,5 +1,6 @@
 import React from "react"
 import BGImg from "gatsby-background-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 
@@ -7,6 +8,7 @@ const getData = graphql`
   {
     image: file(relativePath: { eq: "background-graphic.png" }) {
       childImageSharp {
+        gatsbyImageData(width: 2000)
         fluid(maxWidth: 2000) {
           ...GatsbyImageSharpFluid_withWebp
         }
@@ -17,10 +19,16 @@ const getData = graphql`
 
 const BgGraphicOne = () => {
   const data = useStaticQuery(getData)
-  const heroImage = data.image.childImageSharp.fluid
+  //const heroImage = data.image.childImageSharp.fluid
+  const heroImage = getImage(data.image.childImageSharp.gatsbyImageData)
   return (
     <BgGraphicOneStyled>
-      <BGImg tag="div" fluid={heroImage} />
+      {/* <BGImg tag="div" fluid={heroImage} /> */}
+      <GatsbyImage
+        image={heroImage}
+        alt="Hero background"
+        style={{ height: "100%" }}
+      />
     </BgGraphicOneStyled>
   )
 }
