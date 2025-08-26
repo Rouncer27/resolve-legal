@@ -6,16 +6,14 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 const PhotoGallery = ({ data }) => {
   const [sizes, setSizes] = useState([])
 
-  return null
-
-  // useEffect(() => {
-  //   // Generate random sizes client-side only
-  //   const generated = data.gallery.map(() => ({
-  //     width: Math.floor(Math.random() * 4) + 1,
-  //     height: Math.floor(Math.random() * 4) + 1,
-  //   }))
-  //   setSizes(generated)
-  // }, [data.gallery])
+  useEffect(() => {
+    // Generate random sizes client-side only
+    const generated = data.gallery.map(() => ({
+      width: Math.floor(Math.random() * 4) + 1,
+      height: Math.floor(Math.random() * 4) + 1,
+    }))
+    setSizes(generated)
+  }, [data.gallery])
 
   return (
     <PhotoGallerySection>
@@ -26,8 +24,7 @@ const PhotoGallery = ({ data }) => {
               photo.localFile.childImageSharp.gatsbyImageData
             )
             const imageAlt = photo.altText
-            // const size = sizes[idx] || { width: 1, height: 1 } // placeholder until useEffect runs
-            const size = { width: 1, height: 1 }
+            const size = sizes[idx] || { width: 1, height: 1 } // placeholder until useEffect runs
             return (
               <GalleryImage
                 key={idx}
