@@ -7,12 +7,13 @@ const HeroPage = ({ data }) => {
   const heroImage = data.image.localFile.childImageSharp.fluid
   return (
     <HeroPageStyled>
-      <div className="heroImage">
+      <p>Hero Page</p>
+      {/* <div className="heroImage">
         <BGImg tag="div" fluid={heroImage} />
       </div>
       <div className="graphic">
         <BgGraphicOne />
-      </div>
+      </div> */}
     </HeroPageStyled>
   )
 }
