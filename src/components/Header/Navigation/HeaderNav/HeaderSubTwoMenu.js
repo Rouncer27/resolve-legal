@@ -9,6 +9,7 @@ const HeaderSubTwoMenu = ({
   handleIsActiveOff,
   handleIsActiveOffTopLevel,
 }) => {
+  console.log("hi")
   return (
     <HeaderSubTwoMenuStyled subactive={subactive}>
       {items.map((item, index) => {
