@@ -90,38 +90,38 @@ const PageComponentGroups = props => {
               //     />
               //   )
 
-              case "Page_Acfmaintemplatefields_PageComponents_HeroPage":
-                return <HeroPage key={index} data={component} />
+              // case "Page_Acfmaintemplatefields_PageComponents_HeroPage":
+              //   return <HeroPage key={index} data={component} />
 
-              case "Page_Acfmaintemplatefields_PageComponents_ImageSimpleContent":
-                return <ImageSimpleContent key={index} data={component} />
+              // case "Page_Acfmaintemplatefields_PageComponents_ImageSimpleContent":
+              //   return <ImageSimpleContent key={index} data={component} />
 
-              case "Page_Acfmaintemplatefields_PageComponents_Logos":
-                return <Logos key={index} data={component} />
+              // case "Page_Acfmaintemplatefields_PageComponents_Logos":
+              //   return <Logos key={index} data={component} />
 
-              case "Page_Acfmaintemplatefields_PageComponents_WysiwygImages":
-                return <WysiwygImages key={index} data={component} />
+              // case "Page_Acfmaintemplatefields_PageComponents_WysiwygImages":
+              //   return <WysiwygImages key={index} data={component} />
 
-              case "Page_Acfmaintemplatefields_PageComponents_Directory":
-                return <Directory key={index} data={component} />
+              // case "Page_Acfmaintemplatefields_PageComponents_Directory":
+              //   return <Directory key={index} data={component} />
 
-              case "Page_Acfmaintemplatefields_PageComponents_ImageLinks":
-                return <ImageLinks key={index} data={component} />
+              // case "Page_Acfmaintemplatefields_PageComponents_ImageLinks":
+              //   return <ImageLinks key={index} data={component} />
 
-              case "Page_Acfmaintemplatefields_PageComponents_WysiwygSection":
-                return <WysiwygSection key={index} data={component} />
+              // case "Page_Acfmaintemplatefields_PageComponents_WysiwygSection":
+              //   return <WysiwygSection key={index} data={component} />
 
-              case "Page_Acfmaintemplatefields_PageComponents_BlockItems":
-                return <BlockItems key={index} data={component} />
+              // case "Page_Acfmaintemplatefields_PageComponents_BlockItems":
+              //   return <BlockItems key={index} data={component} />
 
-              case "Page_Acfmaintemplatefields_PageComponents_TeamMembers":
-                return <TeamMembers key={index} data={component} />
+              // case "Page_Acfmaintemplatefields_PageComponents_TeamMembers":
+              //   return <TeamMembers key={index} data={component} />
 
-              case "Page_Acfmaintemplatefields_PageComponents_TitleNoImage":
-                return <TitleNoImage key={index} data={component} />
+              // case "Page_Acfmaintemplatefields_PageComponents_TitleNoImage":
+              //   return <TitleNoImage key={index} data={component} />
 
-              case "Page_Acfmaintemplatefields_PageComponents_FeaturedEvents":
-                return <FeaturedEvents key={index} data={component} />
+              // case "Page_Acfmaintemplatefields_PageComponents_FeaturedEvents":
+              //   return <FeaturedEvents key={index} data={component} />
 
               case "Page_Acfmaintemplatefields_PageComponents_EventsList":
                 return <EventsList key={index} data={component} />
