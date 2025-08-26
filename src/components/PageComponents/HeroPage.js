@@ -1,11 +1,9 @@
 import React from "react"
-import BGImg from "gatsby-background-image"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import BgGraphicOne from "../Graphics/BgGraphicOne"
 
 const HeroPage = ({ data }) => {
-  // const heroImage = data.image.localFile.childImageSharp.fluid
   const heroImage = getImage(
     data.image.localFile.childImageSharp.gatsbyImageData
   )
@@ -16,9 +14,6 @@ const HeroPage = ({ data }) => {
         alt="Hero background"
         style={{ height: "100%" }}
       />
-      {/* <div className="heroImage">
-        <BGImg tag="div" fluid={heroImage} />
-      </div> */}
       <div className="graphic">
         <BgGraphicOne />
       </div>

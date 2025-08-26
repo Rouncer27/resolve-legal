@@ -1,13 +1,16 @@
 import React from "react"
 import styled from "styled-components"
-import BGImg from "gatsby-background-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import { Btn1GoldRev, H1Gold, H4IntroGold } from "../../styles/helpers"
 import ElementTag from "../../utils/ElementTag"
 import MainLogoWhite from "../Logos/MainLogoWhite"
 
 const HeroOne = ({ data }) => {
-  const heroImage = data.image.localFile.childImageSharp.fluid
+  console.log(data)
+  const heroImage = getImage(
+    data.image.localFile.childImageSharp.gatsbyImageData
+  )
   const mainTitleDisplay = ElementTag(data.titleTag, data.title)
 
   return (
@@ -40,7 +43,11 @@ const HeroOne = ({ data }) => {
         </div>
       </div>
       <div className="heroImage">
-        <BGImg tag="div" fluid={heroImage} />
+        <GatsbyImage
+          image={heroImage}
+          alt="Hero background"
+          style={{ height: "100%" }}
+        />
       </div>
       <div className="overlay" />
     </HeroSectionOneStyled>
