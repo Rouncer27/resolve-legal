@@ -111,8 +111,8 @@ const PageComponentGroups = props => {
               case "Page_Acfmaintemplatefields_PageComponents_WysiwygSection":
                 return <WysiwygSection key={index} data={component} />
 
-              // case "Page_Acfmaintemplatefields_PageComponents_BlockItems":
-              //   return <BlockItems key={index} data={component} />
+              case "Page_Acfmaintemplatefields_PageComponents_BlockItems":
+                return <BlockItems key={index} data={component} />
 
               // case "Page_Acfmaintemplatefields_PageComponents_TeamMembers":
               //   return <TeamMembers key={index} data={component} />
