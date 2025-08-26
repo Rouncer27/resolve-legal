@@ -6,6 +6,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 const PhotoGallery = ({ data }) => {
   const [sizes, setSizes] = useState([])
 
+  return null
+
   // useEffect(() => {
   //   // Generate random sizes client-side only
   //   const generated = data.gallery.map(() => ({
